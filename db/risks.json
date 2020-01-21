@@ -1,3 +1,84 @@
 {
-
+  "risk1": {
+    "name": "Dibutyl phthalate",
+    "description": "is used mainly in nail products as a solvent for dyes and as a plasticizer that prevents nail polishes from becoming brittle",
+    "reasoning": "DBP is absorbed through the skin. It can enhance the capacity of other chemicals to cause genetic mutations, although it has not been shown to be a mutagen itself. In laboratory experiments, it has been shown to cause developmental defects, changes in the testes and prostate, and reduced sperm counts.",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-dibutyl-phthalate/",
+    "imageUrl": ""
+  },
+  "risk2": {
+    "name": "Sodium laureth sulfate",
+    "description": "is used in cosmetics as a detergent and also to make products bubble and foam",
+    "reasoning": "Depending on manufacturing processes, sodium laureth sulfate may be contaminated with measurable amounts of ethylene oxide and 1,4-dioxane. i The International Agency for Research on Cancer ethylene oxide as a known human carcinogen and 1,4-dioxane as a possible human carcinogen.",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-sodium-laureth-sulfate/",
+    "imageUrl": ""
+  },
+  "risk3": {
+    "name": "Polyethylene glycols",
+    "description": "are petroleum-based compounds that are widely used in cosmetics as thickeners, solvents, softeners, and moisture-carriers.",
+    "reasoning": "Depending on manufacturing processes, PEGs may be contaminated with measurable amounts of ethylene oxide and 1,4-dioxane. The International Agency for Research on Cancer classifies ethylene oxide as a known human carcinogen and 1,4-dioxane as a possible human carcinogen. Ethylene oxide can also harm the nervous system and the California Environmental Protection Agency has classified it as a developmental toxicant based on evidence that it may interfere with human development. 1,4-dioxane is also persistent.",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-peg-compounds-contaminants/",
+    "imageUrl": ""
+  },
+  "risk4": {
+    "name": "Parabens",
+    "description": "are the most widely used preservative in cosmetics. They are also used as fragrance ingredients.",
+    "reasoning": "Parabens easily penetrate the skin. The European Commission on Endocrine Disruption has listed parabens as Category 1 priority substances, based on evidence that they interfere with hormone function. Parabens can mimic estrogen, the primary female sex hormone. They have been detected in human breast cancer tissues, suggesting a possible association between parabens in cosmetics and cancer.",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-parabens/",
+    "imageUrl": ""
+  },
+  "risk5": {
+    "name": "Butylated hydroxyanisole",
+    "description": "is a synthetic antioxidants used as preservatives in lipsticks and moisturizers.",
+    "reasoning": "BHA and BHT can induce allergic reactions in the skin [1]. The International Agency for Research on Cancer classifies BHA as a possible human carcinogen [2]. The European Commission on Endocrine Disruption has also listed BHA as a Category 1 priority substance, based on evidence that it interferes with hormone function [3].",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-bha-bht/",
+    "imageUrl": ""
+  },
+  "risk6": {
+    "name": "Butylated hydroxytoluene",
+    "description": "is a synthetic antioxidants used as preservatives in lipsticks and moisturizers.",
+    "reasoning": "BHA and BHT can induce allergic reactions in the skin. Long-term exposure to high doses of BHT is toxic in mice and rats, causing liver, thyroid and kidney problems and affecting lung function and blood coagulation. BHT can act as a tumour promoter in certain situations.",
+    "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-bha-bht/",
+    "imageUrl": ""
+  },
+  "risk7": {
+    "name": "Diethanolamine",
+    "description": "are used to make cosmetics creamy or sudsy.",
+    "reasoning": "DEA and its compounds cause mild to moderate skin and eye irritation. In laboratory experiments, exposure to high doses of these chemicals has been shown to cause liver cancers and precancerous changes in skin and thyroid.",
+    "url": "https://davidsuzuki.org/queen-of-green/the-dirty-dozen-dea-related-ingredients/",
+    "imageUrl": ""
+  },
+  "risk8": {
+    "name": "Animal testing",
+    "description": "",
+    "imageUrl": ""
+  },
+  "risk9": {
+    "name": "Non-vegan",
+    "description": "",
+    "reasoning": "",
+    "url": "",
+    "imageUrl": ""
+  },
+  "risk10": {
+    "name": "Coal tar dyes",
+    "description": "are used extensively in cosmetics, generally identified by a five-digit Colour Index (C.I.) number.",
+    "reasoning": "Coal tar is a mixture of many chemicals, derived from petroleum, Coal tar is recognized as a human carcinogen and the main concern with individual coal tar colours (whether produced from coal tar or synthetically) is their potential to cause cancer.",
+    "url": "https://davidsuzuki.org/queen-of-green/the-dirty-dozen-coal-tar-dyes/",
+    "imageUrl": ""
+  },
+  "risk11": {
+    "name": "",
+    "description": "",
+    "reasoning": "",
+    "url": "",
+    "imageUrl": ""
+  },
+  "risk12": {
+    "name": "",
+    "description": "",
+    "reasoning": "",
+    "url": "",
+    "imageUrl": ""
+  }
 }
