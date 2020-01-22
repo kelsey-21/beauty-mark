@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SingleLine from '../../shared/SingleLine/SingleLine';
+
 import './Face.scss';
 
 class Face extends React.Component {
@@ -7,7 +9,7 @@ class Face extends React.Component {
     return (
       <div className="Face">
         <div className="face-image">
-          fdajklf;dsaj
+          <SingleLine />
         </div>
       </div>
     );
