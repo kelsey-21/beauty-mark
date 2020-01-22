@@ -6,7 +6,9 @@ class Face extends React.Component {
   render() {
     return (
       <div className="Face">
-        <h1>Face Page</h1>
+        <div className="face-image">
+          fdajklf;dsaj
+        </div>
       </div>
     );
   }

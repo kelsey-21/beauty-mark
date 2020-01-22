@@ -12,6 +12,7 @@ import Auth from '../components/pages/Auth/Auth';
 import Face from '../components/pages/Face/Face';
 import Learn from '../components/pages/Learn/Learn';
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
+import ProductForm from '../components/pages/ProductForm/ProductForm';
 import Search from '../components/pages/Search/Search';
 
 import authData from '../helpers/data/authData';
@@ -60,6 +61,7 @@ class App extends React.Component {
             <PrivateRoute path="/" exact component={Face} authed={authed} />
             <PrivateRoute path="/search" exact component={Search} authed={authed} />
             <PrivateRoute path="/learn" exact component={Learn} authed={authed} />
+            <PrivateRoute path="/face/new" exact component={ProductForm} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
           </Switch>
         </Router>
