@@ -17,7 +17,6 @@ class Face extends React.Component {
 
   render() {
     const { categories } = this.state;
-    console.log(categories);
     const singleLineDiv = categories.map((category) => <SingleLine key={category.id} category={category.category} />);
     return (
       <div className="Face">
