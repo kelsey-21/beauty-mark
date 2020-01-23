@@ -29,7 +29,7 @@ export default function SingleLine(props) {
     <div className={classes.root}>
       <div className={classes.section1}>
         <Grid container alignItems="flex-end">
-          <Link to="/search">
+          <Link to="/search" className="btn">
             <Typography gutterBottom variant="body1">
               {props.category}
             </Typography>
