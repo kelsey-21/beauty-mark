@@ -1,13 +1,6 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
-
-// const x = new XMLHttpRequest();
-// x.open('GET', 'https://cors-anywhere.herokuapp.com/http://makeup-api.herokuapp.com/api/v1/products.json');
-// x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-// x.onload = () => {
-//   console.log('xml weird stuff', JSON.parse(x.responseText));
-// };
-// x.send();
+import utilities from '../utilities';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
@@ -32,13 +25,17 @@ const createSeedData = () => {
   getAllProducts()
     .then((products) => {
       const productsWithCorrectStructure = [];
-      const productsWithIng = products.filter((product) => product.description != null && (product.description.split('Ingredients')[1] != null && product.description.split('Ingredients')[1] !== ''));
+      const productsWithIng = products.filter((product) => product.description != null
+        && (product.description.split('Ingredients')[1] != null
+        && product.description.split('Ingredients')[1] !== ''
+        && product.product_type !== 'nail_polish'));
       productsWithIng.forEach((product) => {
         if (product.description != null && product.id != null && product.brand != null && product.name && product.description.split('Ingredients')[1] != null) {
           if (product.description.includes('Ingredients')) {
             const newProductObj = {};
             newProductObj.brand = product.brand;
             newProductObj.name = product.name;
+            newProductObj.category = product.product_type;
             if (product.description.split('Ingredients')[0] != null) {
               // eslint-disable-next-line prefer-destructuring
               newProductObj.description = product.description.split('Ingredients')[0];
@@ -58,4 +55,37 @@ const createSeedData = () => {
     .catch((err) => console.error('creating data', err));
 };
 
-export default { createSeedData };
+const categories = [
+  {
+    id: 'category1',
+    category: 'bronzer',
+  },
+  {
+    id: 'category2',
+    category: 'blush',
+  },
+  {
+    id: 'category3',
+    category: 'lipstick',
+  },
+  {
+    id: 'category4',
+    category: 'eyeshadow',
+  },
+  {
+    id: 'category5',
+    category: 'mascara',
+  },
+  {
+    id: 'category6',
+    category: 'foundation',
+  },
+  {
+    id: 'category7',
+    category: 'eyeliner',
+  },
+];
+
+const getProductCategories = () => categories;
+
+export default { createSeedData, getProductCategories };

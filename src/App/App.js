@@ -16,7 +16,6 @@ import ProductForm from '../components/pages/ProductForm/ProductForm';
 import Search from '../components/pages/Search/Search';
 
 import authData from '../helpers/data/authData';
-
 import './App.scss';
 
 authData.firebaseApp();

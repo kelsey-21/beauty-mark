@@ -4,3 +4,42 @@
     height: 2px !important;
   }
 }
+.align-right {
+  justify-content: flex-end !important;
+}
+
+.eyeshadow {
+  top: 12%;
+  position: absolute;
+  align-items: flex-start;
+}
+.eyeliner {
+  top: 15%;
+  position: absolute;
+  align-items: flex-start;
+}
+.mascara {
+  top: 20%;
+  position: absolute;
+  align-items: flex-start;
+}
+.lipstick {
+  top: 45%;
+  position: absolute;
+  align-items: flex-start;
+}
+.foundation {
+  top: 8%;
+  position: absolute;
+  align-items: flex-end;
+}
+.bronzer {
+  top: 30%;
+  position: absolute;
+  align-items: flex-end;
+}
+.blush {
+  top: 35%;
+  position: absolute;
+  align-items: flex-end;
+}
