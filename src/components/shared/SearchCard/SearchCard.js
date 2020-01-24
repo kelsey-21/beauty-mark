@@ -6,6 +6,8 @@ import {
 
 import shapes from '../../../helpers/props/shapes';
 
+import './SearchCard.scss';
+
 class SearchCard extends React.Component {
   static propTypes = {
     product: shapes.productShape,
@@ -20,8 +22,8 @@ class SearchCard extends React.Component {
         <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
         <CardBody>
           <CardTitle>{product.name}</CardTitle>
-          <CardSubtitle>{product.name}</CardSubtitle>
-          <CardText>{product.ingredients}</CardText>
+          <CardSubtitle>{product.brand} {product.category}</CardSubtitle>
+          <CardText>Ingredients: {product.ingredients}</CardText>
           <Button>Add to my bag</Button>
         </CardBody>
       </Card>
