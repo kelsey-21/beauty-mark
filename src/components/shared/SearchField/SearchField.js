@@ -5,21 +5,19 @@ import {
   InputGroupText,
   Input,
 } from 'reactstrap';
-
-const Search = () => <InputGroup>
-<Input placeholder="Search for a product brand" />
-<InputGroupAddon addonType="append">
-  <InputGroupText>$</InputGroupText>
-</InputGroupAddon>
-</InputGroup>;
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class SearchField extends React.Component {
   render() {
+    const searchIcon = <FontAwesomeIcon className="searchIcon" icon={faSearch} size="xs" />;
     return (
-      <div>
-        {Search()}
-      </div>
+        <InputGroup>
+          <Input placeholder="Product brand" />
+            <InputGroupAddon addonType="append">
+              <InputGroupText>{searchIcon}</InputGroupText>
+            </InputGroupAddon>
+        </InputGroup>
     );
   }
 }

@@ -21,15 +21,25 @@ class Search extends React.Component {
     this.setState({ searchCategories: categories });
   }
 
+  updateCategory = (category) => {
+    this.setState({ category });
+  }
+
   render() {
     const { category, searchCategories } = this.state;
-    console.log(searchCategories);
     return (
       <div className="Search">
-        <h1>Search Page</h1>
-        <div className="d-flex justify-content-center align-items-center">
-          <Dropdown category={category} categories={searchCategories}/>
+        <h3>Search for your makeup products</h3>
+        <p>Search for the brand name of your makeup product first, to see if we have it!</p>
+        <div className="d-flex justify-content-center mb-2">
+        <div className="col-10">
+          <div className="row dropdown mb-2">
+          <Dropdown category={category} categories={searchCategories} updateCategory={this.updateCategory} />
+          </div>
+          <div className="row searchField justify-content-center mb-2">
           <SearchField />
+          </div>
+        </div>
         </div>
       </div>
     );

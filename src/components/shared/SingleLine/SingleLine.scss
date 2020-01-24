@@ -1,45 +1,52 @@
-.SingleLine {
-  .MuiDivider-root {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    height: 2px !important;
-  }
-}
-.align-right {
-  justify-content: flex-end !important;
-}
-
 .eyeshadow {
   top: 10%;
   position: absolute;
-  align-items: flex-start;
+  text-align: left;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .eyeliner {
   top: 15%;
+  right: 5%;
   position: absolute;
-  align-items: flex-start;
+  text-align: right;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .mascara {
   top: 20%;
   position: absolute;
-  align-items: flex-start;
+  text-align: left;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .lipstick {
   top: 45%;
   position: absolute;
-  align-items: flex-start;
+  text-align: left;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .foundation {
   top: 5%;
+  right: 5%;
   position: absolute;
-  align-items: flex-end;
+  text-align: right;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .bronzer {
   top: 30%;
+  right: 5%;
   position: absolute;
-  align-items: flex-end;
+  text-align: right;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .blush {
   top: 35%;
   position: absolute;
-  align-items: flex-end;
+  text-align: left;
+  width: 30%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
