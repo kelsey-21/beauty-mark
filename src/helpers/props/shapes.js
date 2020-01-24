@@ -5,4 +5,13 @@ const categoryShape = PropTypes.shape({
   category: PropTypes.string.isRequired,
 });
 
-export default { categoryShape };
+const productShape = PropTypes.shape({
+  id: PropTypes.string,
+  category: PropTypes.string.required,
+  brand: PropTypes.string.required,
+  description: PropTypes.string.required,
+  ingredients: PropTypes.string.required,
+  name: PropTypes.string.required,
+});
+
+export default { categoryShape, productShape };
