@@ -11,8 +11,8 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
             const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
             compUserProducts.push(newUserProduct);
           });
+          resolve(compUserProducts);
         });
-      resolve(compUserProducts);
     })
     .catch((error) => reject(error));
 });

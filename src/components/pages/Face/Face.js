@@ -22,13 +22,15 @@ class Face extends React.Component {
     const singleLineDiv = categories.map((category) => <SingleLine key={category.id} category={category.category} />);
     return (
       <div className="Face-page">
-      <Bag />
-      <div className="Face">
-        <img className="face-image" src={image} alt="face" />
-        <div>
-          {singleLineDiv}
+        <div className="bag-div">
+          <Bag />
         </div>
-      </div>
+        <div className="Face">
+          <img className="face-image" src={image} alt="face" />
+          <div>
+            {singleLineDiv}
+          </div>
+        </div>
       </div>
     );
   }

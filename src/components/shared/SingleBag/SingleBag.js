@@ -13,7 +13,7 @@ class SingleBag extends React.Component {
 
   render() {
     const { userProduct } = this.props;
-    if (!userProduct.name) { return ''; }
+    // if (!userProduct.name) { return ''; }
 
     return (
       <div className="SingleBag">

@@ -21,10 +21,12 @@ class Bag extends React.Component {
   render() {
     const { userProducts } = this.state;
 
-    const SingleBagCard = () => userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} />);
+    const SingleBagCard = () => userProducts && userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} />);
+    console.log(SingleBagCard());
 
     return (
       <div className="Bag">
+        <h1>Test</h1>
         {SingleBagCard()}
       </div>
     );
