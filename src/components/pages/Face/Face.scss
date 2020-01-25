@@ -1,12 +1,13 @@
-
+.Face {
+  width: 50%;
+  transform: translateX(100%);
+}
 
 .face-image {
-  background: url('../../../helpers/images/background.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 90.2vh;
+  height: 90vh;
   overflow: hidden;
-  transform: translateX(25%);
 }
