@@ -105,4 +105,19 @@ const getFilteredProducts = (brand, category) => new Promise((resolve, reject) =
     .catch((error) => reject(error));
 });
 
-export default { createSeedData, getProductCategories, getFilteredProducts };
+const getProductsById = (id) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/products/${id}.json`)
+    .then((response) => {
+      const product = response.data;
+      product.id = id;
+      resolve(product);
+    })
+    .catch((error) => reject(error));
+});
+
+export default {
+  createSeedData,
+  getProductCategories,
+  getFilteredProducts,
+  getProductsById,
+};

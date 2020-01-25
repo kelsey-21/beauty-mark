@@ -3,6 +3,7 @@ import React from 'react';
 import SingleLine from '../../shared/SingleLine/SingleLine';
 import productData from '../../../helpers/data/productData';
 import image from '../../../helpers/images/background.png';
+import Bag from '../../shared/Bag/Bag';
 
 import './Face.scss';
 
@@ -20,11 +21,14 @@ class Face extends React.Component {
     const { categories } = this.state;
     const singleLineDiv = categories.map((category) => <SingleLine key={category.id} category={category.category} />);
     return (
+      <div className="Face-page">
+      <Bag />
       <div className="Face">
         <img className="face-image" src={image} alt="face" />
         <div>
           {singleLineDiv}
         </div>
+      </div>
       </div>
     );
   }
