@@ -1,12 +1,94 @@
 import React from 'react';
+import queryString from 'query-string';
+import {
+  InputGroup, InputGroupAddon, Input,
+  Button, Dropdown, DropdownToggle,
+  DropdownMenu, DropdownItem,
+} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+import SearchCard from '../../shared/SearchCard/SearchCard';
+import productData from '../../../helpers/data/productData';
 
 import './Search.scss';
 
 class Search extends React.Component {
+  state = {
+    isOpen: false,
+    category: '',
+    searchBrand: '',
+    searchCategories: [],
+    searchedProducts: [],
+  }
+
+  componentDidMount() {
+    const values = queryString.parse(this.props.location.search);
+    this.setState({ category: values.category });
+    const categories = productData.getProductCategories();
+    this.setState({ searchCategories: categories });
+  }
+
+  updateCategory = (category) => {
+    this.setState({ category });
+  }
+
+  searchChange = (e) => {
+    e.preventDefault();
+    this.setState({ searchBrand: e.target.value });
+  }
+
+  changeCategory = (e) => {
+    e.preventDefault();
+    this.setState({ category: e.target.value });
+  };
+
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  searchBrandsEvent = (e) => {
+    e.preventDefault();
+    const { category, searchBrand } = this.state;
+    productData.getFilteredProducts(searchBrand, category)
+      .then((products) => {
+        this.setState({ searchedProducts: products });
+      })
+      .catch((error) => console.error(error));
+  }
+
   render() {
+    const { category, searchCategories } = this.state;
+    const searchIcon = <FontAwesomeIcon className="searchIcon" icon={faSearch} size="xs" />;
+    const categoryList = searchCategories.map((categorie) => <DropdownItem key={categorie.id} value={categorie.category} onClick={this.changeCategory}>{categorie.category}</DropdownItem>);
+    const productCard = this.state.searchedProducts.map((product) => <SearchCard key={product.id} product={product} />);
     return (
       <div className="Search">
-        <h1>Search Page</h1>
+        <h3>Search for your makeup products</h3>
+        <p>Search for the brand name of your makeup product first to see if we have it!</p>
+        <div className="d-flex justify-content-center mb-2">
+        <div className="col-10">
+          <div className="row dropdown mb-2">
+            <Dropdown isOpen={this.state.isOpen} toggle={this.toggle}>
+            <DropdownToggle caret>
+              {category}
+            </DropdownToggle>
+            <DropdownMenu>
+              {categoryList}
+            </DropdownMenu>
+          </Dropdown>
+          </div>
+          <div className="row searchField justify-content-center mb-2">
+          <InputGroup>
+            <Input placeholder="Product Brand" value={this.state.searchBrand} onChange={this.searchChange} />
+            <InputGroupAddon addonType="append"><Button color="secondary" onClick={this.searchBrandsEvent}>{searchIcon}</Button></InputGroupAddon>
+          </InputGroup>
+          </div>
+        </div>
+        </div>
+        <div className="d-flex container justify-content-center mb-2 flex-wrap SearchArea">
+          {productCard}
+        </div>
       </div>
     );
   }

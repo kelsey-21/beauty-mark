@@ -1,10 +1,9 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
-import utilities from '../utilities';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getAllProducts = () => new Promise((resolve, reject) => {
+const getAllProductsFromApi = () => new Promise((resolve, reject) => {
   axios.get('http://makeup-api.herokuapp.com/api/v1/products.json')
     .then((result) => {
       const allProducts = result.data;
@@ -22,7 +21,7 @@ const getAllProducts = () => new Promise((resolve, reject) => {
 });
 
 const createSeedData = () => {
-  getAllProducts()
+  getAllProductsFromApi()
     .then((products) => {
       const productsWithCorrectStructure = [];
       const productsWithIng = products.filter((product) => product.description != null
@@ -88,4 +87,22 @@ const categories = [
 
 const getProductCategories = () => categories;
 
-export default { createSeedData, getProductCategories };
+const getFilteredProducts = (brand, category) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/products.json?orderBy="category"&equalTo="${category}"`)
+    .then((response) => {
+      const allProducts = response.data;
+      const filtProducts = [];
+      if (allProducts != null) {
+        Object.keys(allProducts).forEach((productId) => {
+          const newProduct = allProducts[productId];
+          newProduct.id = productId;
+          filtProducts.push(newProduct);
+        });
+      }
+      const filteredProducts = filtProducts.filter((products) => products.brand === brand);
+      resolve(filteredProducts);
+    })
+    .catch((error) => reject(error));
+});
+
+export default { createSeedData, getProductCategories, getFilteredProducts };
