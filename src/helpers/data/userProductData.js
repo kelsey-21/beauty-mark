@@ -1,7 +1,6 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
 
-import productData from './productData';
 import authData from './authData';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
@@ -12,22 +11,14 @@ const getUserProducts = () => new Promise((resolve, reject) => {
     .then((response) => {
       const allUserProducts = response.data;
       const userProducts = [];
-      const realUserProducts = [];
       if (allUserProducts != null) {
-        Object.keys(allUserProducts).forEach((prId) => {
-          const newProduct = allUserProducts[prId];
-          newProduct.id = prId;
+        Object.keys(allUserProducts).forEach((fbId) => {
+          const newProduct = allUserProducts[fbId];
+          newProduct.id = fbId;
           userProducts.push(newProduct);
         });
       }
-      userProducts.forEach((userProduct) => {
-        productData.getProductsById(userProduct.productId)
-          .then((stuff) => {
-            const productObj = stuff;
-            realUserProducts.push(productObj);
-          });
-      });
-      resolve(realUserProducts);
+      resolve(userProducts);
     })
     .catch((error) => reject(error));
 });

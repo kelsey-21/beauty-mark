@@ -115,9 +115,27 @@ const getProductsById = (id) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getAllProducts = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/products.json`)
+    .then((response) => {
+      const allProducts = response.data;
+      const products = [];
+      if (allProducts != null) {
+        Object.keys(allProducts).forEach((productId) => {
+          const newProduct = allProducts[productId];
+          newProduct.id = productId;
+          products.push(newProduct);
+        });
+      }
+      resolve(products);
+    })
+    .catch((error) => reject(error));
+});
+
 export default {
   createSeedData,
   getProductCategories,
   getFilteredProducts,
   getProductsById,
+  getAllProducts,
 };
