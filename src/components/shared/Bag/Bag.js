@@ -26,8 +26,10 @@ class Bag extends React.Component {
 
     return (
       <div className="Bag">
-        <h1>Test</h1>
+        <h6>Your Makeup Bag</h6>
+        <div className="bag-card-area">
         {SingleBagCard()}
+        </div>
       </div>
     );
   }
