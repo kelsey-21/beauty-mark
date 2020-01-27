@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class MyNavbar extends React.Component {
@@ -28,7 +28,7 @@ class MyNavbar extends React.Component {
               <Link className="nav-link" to="/learn">Learn More</Link>
             </li>
             <li className="nav-item">
-            <Button variant="outlined" color="secondary" onClick={this.logOutClickEvent}>
+            <Button onClick={this.logOutClickEvent}>
               Logout
             </Button>
             </li>

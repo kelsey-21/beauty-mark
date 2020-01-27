@@ -1,0 +1,22 @@
+{
+    "productRisk1": {
+      "productId": "-LzAHbJ27YVGECyTQC45",
+      "riskId": "risk2"
+    },
+    "productRisk2": {
+      "productId": "-LzAHbM4SDZTeHnYZ2GL",
+      "riskId": "risk1"
+    },
+    "productRisk3": {
+      "productId": "-LzAHba3el8RmOQFlYK1",
+      "riskId": "risk4"
+    },
+    "productRisk4": {
+      "productId": "-LzAHbMBqhXTJZ12P9HA",
+      "riskId": "risk1"
+    },
+    "productRisk5": {
+      "productId": "-LzAHbJ27YVGECyTQC45",
+      "riskId": "risk5"
+    }
+}
