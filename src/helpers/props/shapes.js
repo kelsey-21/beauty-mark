@@ -23,4 +23,13 @@ const userProductShape = PropTypes.shape({
   name: PropTypes.string.required,
 });
 
-export default { categoryShape, productShape, userProductShape };
+const learnShape = PropTypes.shape({
+  id: PropTypes.string,
+  reasoning: PropTypes.string.required,
+  imageUrl: PropTypes.string.required,
+  description: PropTypes.string.required,
+  url: PropTypes.string.required,
+  name: PropTypes.string.required,
+});
+
+export default { categoryShape, productShape, userProductShape, learnShape };
