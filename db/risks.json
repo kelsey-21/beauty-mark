@@ -30,7 +30,7 @@
   "risk5": {
     "name": "Butylated hydroxyanisole",
     "description": "is a synthetic antioxidants used as preservatives in lipsticks and moisturizers.",
-    "reasoning": "BHA and BHT can induce allergic reactions in the skin [1]. The International Agency for Research on Cancer classifies BHA as a possible human carcinogen [2]. The European Commission on Endocrine Disruption has also listed BHA as a Category 1 priority substance, based on evidence that it interferes with hormone function [3].",
+    "reasoning": "BHA and BHT can induce allergic reactions in the skin. The International Agency for Research on Cancer classifies BHA as a possible human carcinogen. The European Commission on Endocrine Disruption has also listed BHA as a Category 1 priority substance, based on evidence that it interferes with hormone function.",
     "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-bha-bht/",
     "imageUrl": ""
   },
@@ -49,36 +49,10 @@
     "imageUrl": ""
   },
   "risk8": {
-    "name": "Animal testing",
-    "description": "",
-    "imageUrl": ""
-  },
-  "risk9": {
-    "name": "Non-vegan",
-    "description": "",
-    "reasoning": "",
-    "url": "",
-    "imageUrl": ""
-  },
-  "risk10": {
     "name": "Coal tar dyes",
     "description": "are used extensively in cosmetics, generally identified by a five-digit Colour Index (C.I.) number.",
     "reasoning": "Coal tar is a mixture of many chemicals, derived from petroleum, Coal tar is recognized as a human carcinogen and the main concern with individual coal tar colours (whether produced from coal tar or synthetically) is their potential to cause cancer.",
     "url": "https://davidsuzuki.org/queen-of-green/the-dirty-dozen-coal-tar-dyes/",
-    "imageUrl": ""
-  },
-  "risk11": {
-    "name": "",
-    "description": "",
-    "reasoning": "",
-    "url": "",
-    "imageUrl": ""
-  },
-  "risk12": {
-    "name": "",
-    "description": "",
-    "reasoning": "",
-    "url": "",
     "imageUrl": ""
   }
 }
