@@ -25,4 +25,6 @@ const getUserProducts = () => new Promise((resolve, reject) => {
 
 const deleteUserProduct = (userProductId) => axios.delete(`${baseUrl}/userProducts/${userProductId}.json`);
 
-export default { getUserProducts, deleteUserProduct };
+const saveUserProduct = (newProduct) => axios.post(`${baseUrl}/userProducts.json`, newProduct);
+
+export default { getUserProducts, deleteUserProduct, saveUserProduct };

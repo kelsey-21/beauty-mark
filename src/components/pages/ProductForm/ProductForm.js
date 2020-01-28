@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
+import userProductData from '../../../helpers/data/userProductData';
+import authData from '../../../helpers/data/authData';
 
 class ProductForm extends React.Component {
   state = {
@@ -39,7 +42,14 @@ class ProductForm extends React.Component {
   saveNewProduct = (newProductInfo) => {
     productData.saveProduct(newProductInfo)
       .then((response) => {
-        console.log(response);
+        const newUserProductInfo = {
+          productId: response.data.name,
+          uid: authData.getUid(),
+        };
+        userProductData.saveUserProduct(newUserProductInfo)
+          .then(() => {
+            console.log('coming in here');
+          });
       })
       .catch((error) => console.error(error));
   }
@@ -138,7 +148,7 @@ class ProductForm extends React.Component {
             required
             />
           </div>
-          <button className="btn btn-secondary" onClick={this.saveProductEvent}>Save & Add to my bag</button>
+          <Link to="/" className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Link>
         </form>
       </div>
     );
