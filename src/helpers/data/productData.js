@@ -134,6 +134,8 @@ const getAllProducts = () => new Promise((resolve, reject) => {
 
 const saveProduct = (newProduct) => axios.post(`${baseUrl}/products.json`, newProduct);
 
+const updateProduct = (productId, productInfo) => axios.put(`${baseUrl}/products/${productId}.json`, productInfo);
+
 export default {
   createSeedData,
   getProductCategories,
@@ -141,4 +143,5 @@ export default {
   getProductsById,
   getAllProducts,
   saveProduct,
+  updateProduct,
 };

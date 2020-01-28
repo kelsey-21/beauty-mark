@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +14,11 @@ class Bag extends React.Component {
   state = {
     userProducts: [],
   }
+
+  static propTypes = {
+    isAdmin: PropTypes.bool,
+  }
+
 
   componentDidMount() {
     this.getAllUserProducts();
@@ -35,7 +41,7 @@ class Bag extends React.Component {
   render() {
     const { userProducts } = this.state;
 
-    const SingleBagCard = () => userProducts && userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} deleteUserProduct={this.deleteUserProduct} />);
+    const SingleBagCard = () => userProducts && userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} deleteUserProduct={this.deleteUserProduct} isAdmin={this.props.isAdmin}/>);
 
     return (
       <div className="Bag">

@@ -1,11 +1,8 @@
 import React from 'react';
-import {
-  Card, CardImgOverlay, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, CardImg,
-} from 'reactstrap';
 
 import shapes from '../../../helpers/props/shapes';
 import authData from '../../../helpers/data/authData';
+import userProductData from '../../../helpers/data/userProductData';
 
 import Pink from '../../../helpers/images/Pink.jpeg';
 import Red from '../../../helpers/images/Red.jpeg';
@@ -36,24 +33,29 @@ class SearchCard extends React.Component {
     const newUserProduct = {};
     newUserProduct.productId = product.id;
     newUserProduct.uid = uid;
+    userProductData.saveUserProduct(newUserProduct)
+      .then(() => {
+        this.props.history.push('/');
+      })
+      .catch((error) => console.error(error));
   }
 
   render() {
     const { product } = this.props;
 
     return (
-      <div className="SearchCard">
-      <Card>
-        <CardImg top width="100%" src={this.randomPic()} alt="lipstick smear" />
-        <CardImgOverlay>
-          <CardTitle>{product.name}</CardTitle>
-          <CardSubtitle>{product.brand} {product.category}</CardSubtitle>
-        </CardImgOverlay>
-        <CardBody>
-          <CardText>Ingredients {product.ingredients}</CardText>
-          <Button onClick={this.saveProductEvent}>Add to my bag</Button>
-        </CardBody>
-      </Card>
+      <div className="SearchCard border">
+        <div className="card border-0 search-card-img">
+          <img src={this.randomPic()} className="card-img" alt="lipstick smear" />
+          <div className="card-img-overlay">
+            <h5 className="card-title">{product.name}</h5>
+            <p className="card-title">{product.brand} {product.category}</p>
+          </div>
+        </div>
+        <div className="card-body">
+          <p className="card-text text-muted">Ingredients {product.ingredients}</p>
+          <button className="btn btn-outline-secondary" onClick={this.saveProductEvent}>Add to my bag</button>
+        </div>
     </div>
     );
   }
