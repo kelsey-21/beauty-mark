@@ -86,7 +86,7 @@ class Search extends React.Component {
           </div>
           <div className="row searchField justify-content-center mb-2">
           <InputGroup>
-            <Input placeholder="Product Brand" value={this.state.searchBrand} onChange={this.searchChange} />
+            <Input placeholder="Product Brand" value={this.state.searchBrand.toLowerCase()} onChange={this.searchChange} />
             <InputGroupAddon addonType="append"><Button color="secondary" onClick={this.searchBrandsEvent}>{searchIcon}</Button></InputGroupAddon>
           </InputGroup>
           </div>

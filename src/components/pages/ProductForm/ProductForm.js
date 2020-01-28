@@ -41,6 +41,7 @@ class ProductForm extends React.Component {
   saveNewProduct = (newProductInfo) => {
     productData.saveProduct(newProductInfo)
       .then((response) => {
+        console.log(response.data.name);
         const newUserProductInfo = {
           productId: response.data.name,
           uid: authData.getUid(),
@@ -89,7 +90,7 @@ class ProductForm extends React.Component {
               className="form-control"
               id="product-name"
               placeholder="Enter product name"
-              value={this.state.productName}
+              value={this.state.productName.toLowerCase()}
               onChange={this.nameChange}
               required
             />
@@ -101,7 +102,7 @@ class ProductForm extends React.Component {
             className="form-control"
             id="product-brand"
             placeholder="Enter product brand"
-            value={this.state.productBrand}
+            value={this.state.productBrand.toLowerCase()}
             onChange={this.brandChange}
             required
             />
@@ -142,7 +143,7 @@ class ProductForm extends React.Component {
             className="form-control"
             id="product-ingredients"
             placeholder="List product ingredients"
-            value={this.state.productIngredients}
+            value={this.state.productIngredients.toLowerCase()}
             onChange={this.ingredientsChange}
             required
             />

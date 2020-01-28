@@ -1,15 +1,50 @@
-.Face {
-  width: 50%;
-  position: absolute;
-  transform: translateX(100%);
-  top: 10%;
+@media (min-width:960px) {
+  .Face {
+    width: 50%;
+    position: absolute;
+    transform: translateX(100%);
+    top: 10%;
+  }
+  .bag-div {
+    width: 45%;
+    margin: 1%;
+    max-height: 86vh;
+    overflow-y: scroll;
+  }
+  .face-image {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 90vh;
+    overflow: hidden;
+  }
 }
 
-.face-image {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 90vh;
-  overflow: hidden;
+@media (max-width:960px) {
+  .Face {
+    width: 90%;
+    position: absolute;
+    top: 10%;
+    height: 80%;
+  }
+  .bag-div {
+    width: 90%;
+    margin: 1%;
+    top: 105%;
+    position: absolute;
+    height: 80%;
+    overflow-y: scroll;
+  }
+  .face-image {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 90vh;
+    overflow: hidden;
+  }
 }
+
+
+

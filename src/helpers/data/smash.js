@@ -9,7 +9,6 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
         .then((userProducts) => {
           userProducts.forEach((userProduct) => {
             if (userProduct.id !== undefined) {
-              console.log(userProduct);
               const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
               newUserProduct.userProductId = userProduct.id;
               newUserProduct.productId = userProduct.productId;
