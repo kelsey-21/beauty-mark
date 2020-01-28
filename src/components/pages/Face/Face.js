@@ -11,6 +11,7 @@ import './Face.scss';
 class Face extends React.Component {
   state = {
     categories: [],
+    isAdmin: false,
   }
 
   checkIfAdmin = () => {

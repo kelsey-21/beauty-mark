@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'reactstrap';
 
 import shapes from '../../../helpers/props/shapes';
 import authData from '../../../helpers/data/authData';
@@ -25,7 +29,6 @@ class SearchCard extends React.Component {
 
   randomPic = () => picArr[Math.floor(Math.random() * picArr.length)];
 
-
   saveProductEvent = (e) => {
     e.preventDefault();
     const { product } = this.props;
@@ -46,16 +49,17 @@ class SearchCard extends React.Component {
     return (
       <div className="SearchCard border">
         <div className="card border-0 search-card-img">
-          <img src={this.randomPic()} className="card-img" alt="lipstick smear" />
-          <div className="card-img-overlay">
+          <img src={this.randomPic()} className="card-img-top" alt="lipstick smear" />
+          <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <p className="card-title">{product.brand} {product.category}</p>
-          </div>
-        </div>
-        <div className="card-body">
           <p className="card-text text-muted">Ingredients {product.ingredients}</p>
-          <button className="btn btn-outline-secondary" onClick={this.saveProductEvent}>Add to my bag</button>
+          <Button color="link" onClick={this.saveProductEvent}><FontAwesomeIcon icon={faPlus} size="sm"/></Button>
+          {
+              ((this.props.isAdmin) ? <Link to={`/face/update/${product.id}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
+          }
         </div>
+      </div>
     </div>
     );
   }

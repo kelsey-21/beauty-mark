@@ -15,6 +15,38 @@ class ProductForm extends React.Component {
     productDesc: '',
   }
 
+  componentDidMount() {
+    const { productId } = this.props.match.params;
+    if (productId) {
+      productData.getProductById(productId)
+        .then((response) => {
+          this.setState({
+            productName: response.data.name,
+            productBrand: response.data.brand,
+            productIngredients: response.data.ingredients,
+            productCategory: response.data.category,
+            productDesc: response.data.description,
+          });
+        })
+        .catch((err) => console.error(err));
+    }
+  }
+
+  updateProductEvent = (e) => {
+    e.preventDefault();
+    const { productId } = this.props.match.params;
+    const updatedProduct = {
+      name: this.state.productName,
+      description: this.state.productDesc,
+      brand: this.state.productBrand,
+      ingredients: this.state.productIngredients,
+      category: this.state.productCategory,
+    };
+    productData.updateProduct(productId, updatedProduct)
+      .then(() => this.props.history.push('/'))
+      .catch((err) => console.error('err from edit board form', err));
+  }
+
   saveProductEvent = (e) => {
     e.preventDefault();
     const {
@@ -43,7 +75,6 @@ class ProductForm extends React.Component {
   saveNewProduct = (newProductInfo) => {
     productData.saveProduct(newProductInfo)
       .then((response) => {
-        console.log(response.data.name);
         const newUserProductInfo = {
           productId: response.data.name,
           uid: authData.getUid(),
@@ -150,7 +181,10 @@ class ProductForm extends React.Component {
             required
             />
           </div>
-          <Button className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
+          { this.props.match.params.productId
+            ? <Button className="btn btn-secondary" onClick={this.updateProductEvent}>Update product details</Button>
+            : <Button className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
+          }
         </form>
       </div>
     );

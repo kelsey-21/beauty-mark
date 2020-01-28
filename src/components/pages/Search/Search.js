@@ -11,6 +11,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import SearchCard from '../../shared/SearchCard/SearchCard';
 import productData from '../../../helpers/data/productData';
+import authData from '../../../helpers/data/authData';
 
 import './Search.scss';
 
@@ -21,6 +22,13 @@ class Search extends React.Component {
     searchBrand: '',
     searchCategories: [],
     searchedProducts: [],
+    isAdmin: false,
+  }
+
+  checkIfAdmin = () => {
+    if (authData.getUid() === 'zydbWlIlYufAZU5qegcHhCpze3h2') {
+      this.setState({ isAdmin: true });
+    }
   }
 
   componentDidMount() {
@@ -33,6 +41,7 @@ class Search extends React.Component {
     }
     const categories = productData.getProductCategories();
     this.setState({ searchCategories: categories });
+    this.checkIfAdmin();
   }
 
   updateCategory = (category) => {
@@ -65,9 +74,13 @@ class Search extends React.Component {
 
   render() {
     const { category, searchCategories } = this.state;
+
     const searchIcon = <FontAwesomeIcon className="searchIcon" icon={faSearch} size="xs" />;
+
     const categoryList = searchCategories.map((categorie) => <DropdownItem key={categorie.id} value={categorie.category} onClick={this.changeCategory}>{categorie.category}</DropdownItem>);
-    const productCard = this.state.searchedProducts.map((product) => <SearchCard key={product.id} product={product} />);
+
+    const productCard = this.state.searchedProducts.map((product) => <SearchCard key={product.id} product={product} isAdmin={this.state.isAdmin} />);
+
     return (
       <div className="Search">
         <h3>Search for your makeup products</h3>

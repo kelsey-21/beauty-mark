@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card, CardBody, Button,
   CardTitle, CardText, CardImg,
@@ -63,7 +64,7 @@ class SingleBag extends React.Component {
             <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
             <Button color="link"><FontAwesomeIcon icon={faRandom} size="sm"/></Button>
             {
-              ((this.props.isAdmin) ? <Button color="link"><FontAwesomeIcon icon={faPen} size="sm"/></Button> : '')
+              ((this.props.isAdmin) ? <Link to={`/face/update/${userProduct.productId}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
             }
           </CardBody>
         </Card>
