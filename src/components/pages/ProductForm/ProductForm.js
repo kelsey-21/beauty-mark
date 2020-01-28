@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
@@ -16,6 +15,38 @@ class ProductForm extends React.Component {
     productDesc: '',
   }
 
+  componentDidMount() {
+    const { productId } = this.props.match.params;
+    if (productId) {
+      productData.getProductById(productId)
+        .then((response) => {
+          this.setState({
+            productName: response.data.name,
+            productBrand: response.data.brand,
+            productIngredients: response.data.ingredients,
+            productCategory: response.data.category,
+            productDesc: response.data.description,
+          });
+        })
+        .catch((err) => console.error(err));
+    }
+  }
+
+  updateProductEvent = (e) => {
+    e.preventDefault();
+    const { productId } = this.props.match.params;
+    const updatedProduct = {
+      name: this.state.productName,
+      description: this.state.productDesc,
+      brand: this.state.productBrand,
+      ingredients: this.state.productIngredients,
+      category: this.state.productCategory,
+    };
+    productData.updateProduct(productId, updatedProduct)
+      .then(() => this.props.history.push('/'))
+      .catch((err) => console.error('err from edit board form', err));
+  }
+
   saveProductEvent = (e) => {
     e.preventDefault();
     const {
@@ -29,7 +60,9 @@ class ProductForm extends React.Component {
       ingredients: productIngredients,
       name: productName,
     };
-    this.saveNewProduct(newProductInfo);
+    if (Object.keys(newProductInfo) !== []) {
+      this.saveNewProduct(newProductInfo);
+    }
     this.setState({
       productName: '',
       productBrand: '',
@@ -48,7 +81,7 @@ class ProductForm extends React.Component {
         };
         userProductData.saveUserProduct(newUserProductInfo)
           .then(() => {
-            console.log('coming in here');
+            this.props.history.push('/');
           });
       })
       .catch((error) => console.error(error));
@@ -90,7 +123,7 @@ class ProductForm extends React.Component {
               className="form-control"
               id="product-name"
               placeholder="Enter product name"
-              value={this.state.productName}
+              value={this.state.productName.toLowerCase()}
               onChange={this.nameChange}
               required
             />
@@ -102,7 +135,7 @@ class ProductForm extends React.Component {
             className="form-control"
             id="product-brand"
             placeholder="Enter product brand"
-            value={this.state.productBrand}
+            value={this.state.productBrand.toLowerCase()}
             onChange={this.brandChange}
             required
             />
@@ -143,12 +176,15 @@ class ProductForm extends React.Component {
             className="form-control"
             id="product-ingredients"
             placeholder="List product ingredients"
-            value={this.state.productIngredients}
+            value={this.state.productIngredients.toLowerCase()}
             onChange={this.ingredientsChange}
             required
             />
           </div>
-          <Link to="/" className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Link>
+          { this.props.match.params.productId
+            ? <Button className="btn btn-secondary" onClick={this.updateProductEvent}>Update product details</Button>
+            : <Button className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
+          }
         </form>
       </div>
     );

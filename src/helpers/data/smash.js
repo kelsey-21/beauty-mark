@@ -8,11 +8,13 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
       userProductData.getUserProducts()
         .then((userProducts) => {
           userProducts.forEach((userProduct) => {
-            const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
-            newUserProduct.userProductId = userProduct.id;
-            newUserProduct.productId = userProduct.productId;
-            newUserProduct.uid = userProduct.uid;
-            compUserProducts.push(newUserProduct);
+            if (userProduct.id !== undefined) {
+              const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
+              newUserProduct.userProductId = userProduct.id;
+              newUserProduct.productId = userProduct.productId;
+              newUserProduct.uid = userProduct.uid;
+              compUserProducts.push(newUserProduct);
+            }
           });
           resolve(compUserProducts);
         });

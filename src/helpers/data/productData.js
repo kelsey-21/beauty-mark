@@ -105,15 +105,7 @@ const getFilteredProducts = (brand, category) => new Promise((resolve, reject) =
     .catch((error) => reject(error));
 });
 
-const getProductsById = (id) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/products/${id}.json`)
-    .then((response) => {
-      const product = response.data;
-      product.id = id;
-      resolve(product);
-    })
-    .catch((error) => reject(error));
-});
+const getProductById = (id) => axios.get(`${baseUrl}/products/${id}.json`);
 
 const getAllProducts = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/products.json`)
@@ -134,11 +126,14 @@ const getAllProducts = () => new Promise((resolve, reject) => {
 
 const saveProduct = (newProduct) => axios.post(`${baseUrl}/products.json`, newProduct);
 
+const updateProduct = (productId, productInfo) => axios.put(`${baseUrl}/products/${productId}.json`, productInfo);
+
 export default {
   createSeedData,
   getProductCategories,
   getFilteredProducts,
-  getProductsById,
+  getProductById,
   getAllProducts,
   saveProduct,
+  updateProduct,
 };

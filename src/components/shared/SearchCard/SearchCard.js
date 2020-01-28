@@ -1,11 +1,12 @@
 import React from 'react';
-import {
-  Card, CardImgOverlay, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, CardImg,
-} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'reactstrap';
 
 import shapes from '../../../helpers/props/shapes';
 import authData from '../../../helpers/data/authData';
+import userProductData from '../../../helpers/data/userProductData';
 
 import Pink from '../../../helpers/images/Pink.jpeg';
 import Red from '../../../helpers/images/Red.jpeg';
@@ -28,7 +29,6 @@ class SearchCard extends React.Component {
 
   randomPic = () => picArr[Math.floor(Math.random() * picArr.length)];
 
-
   saveProductEvent = (e) => {
     e.preventDefault();
     const { product } = this.props;
@@ -36,24 +36,30 @@ class SearchCard extends React.Component {
     const newUserProduct = {};
     newUserProduct.productId = product.id;
     newUserProduct.uid = uid;
+    userProductData.saveUserProduct(newUserProduct)
+      .then(() => {
+        this.props.history.push('/');
+      })
+      .catch((error) => console.error(error));
   }
 
   render() {
     const { product } = this.props;
 
     return (
-      <div className="SearchCard">
-      <Card>
-        <CardImg top width="100%" src={this.randomPic()} alt="lipstick smear" />
-        <CardImgOverlay>
-          <CardTitle>{product.name}</CardTitle>
-          <CardSubtitle>{product.brand} {product.category}</CardSubtitle>
-        </CardImgOverlay>
-        <CardBody>
-          <CardText>Ingredients {product.ingredients}</CardText>
-          <Button onClick={this.saveProductEvent}>Add to my bag</Button>
-        </CardBody>
-      </Card>
+      <div className="SearchCard border">
+        <div className="card border-0 search-card-img">
+          <img src={this.randomPic()} className="card-img-top" alt="lipstick smear" />
+          <div className="card-body">
+            <h5 className="card-title">{product.name}</h5>
+            <p className="card-title">{product.brand} {product.category}</p>
+          <p className="card-text text-muted">Ingredients {product.ingredients}</p>
+          <Button color="link" onClick={this.saveProductEvent}><FontAwesomeIcon icon={faPlus} size="sm"/></Button>
+          {
+              ((this.props.isAdmin) ? <Link to={`/face/update/${product.id}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
+          }
+        </div>
+      </div>
     </div>
     );
   }

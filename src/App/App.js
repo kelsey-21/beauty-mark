@@ -61,6 +61,7 @@ class App extends React.Component {
             <PrivateRoute path="/search" exact component={Search} authed={authed} />
             <PrivateRoute path="/learn" exact component={Learn} authed={authed} />
             <PrivateRoute path="/face/new" exact component={ProductForm} authed={authed} />
+            <PrivateRoute path="/face/update/:productId" exact component={ProductForm} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
           </Switch>
         </Router>

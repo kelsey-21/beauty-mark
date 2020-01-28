@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card, CardBody, Button,
   CardTitle, CardText, CardImg,
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faRandom } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faRandom, faPen } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 import shapes from '../../../helpers/props/shapes';
@@ -31,6 +32,7 @@ class SingleBag extends React.Component {
   static propTypes = {
     userProduct: shapes.userProductShape,
     deleteUserProduct: PropTypes.func,
+    isAdmin: PropTypes.bool,
   }
 
   randomPic = () => picArr[Math.floor(Math.random() * picArr.length)];
@@ -61,6 +63,9 @@ class SingleBag extends React.Component {
 
             <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
             <Button color="link"><FontAwesomeIcon icon={faRandom} size="sm"/></Button>
+            {
+              ((this.props.isAdmin) ? <Link to={`/face/update/${userProduct.productId}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
+            }
           </CardBody>
         </Card>
       </div>
