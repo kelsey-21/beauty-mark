@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import smash from '../../../helpers/data/smash';
 import SingleBag from '../SingleBag/SingleBag';
@@ -36,7 +39,7 @@ class Bag extends React.Component {
 
     return (
       <div className="Bag">
-        <h6>Your Makeup Bag</h6>
+        <h6>Your Makeup Bag <Link to="/search"><FontAwesomeIcon icon={faPlus} size="sm"/></Link></h6>
         <div className="bag-card-area">
         {SingleBagCard()}
         </div>
