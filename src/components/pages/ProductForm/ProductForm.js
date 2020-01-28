@@ -28,7 +28,9 @@ class ProductForm extends React.Component {
       ingredients: productIngredients,
       name: productName,
     };
-    this.saveNewProduct(newProductInfo);
+    if (Object.keys(newProductInfo) !== []) {
+      this.saveNewProduct(newProductInfo);
+    }
     this.setState({
       productName: '',
       productBrand: '',
