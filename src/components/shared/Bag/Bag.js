@@ -4,6 +4,7 @@ import smash from '../../../helpers/data/smash';
 import SingleBag from '../SingleBag/SingleBag';
 
 import './Bag.scss';
+import userProductData from '../../../helpers/data/userProductData';
 
 class Bag extends React.Component {
   state = {
@@ -11,6 +12,10 @@ class Bag extends React.Component {
   }
 
   componentDidMount() {
+    this.getAllUserProducts();
+  }
+
+  getAllUserProducts = () => {
     smash.getCompleteUserProducts()
       .then((userProducts) => {
         this.setState({ userProducts });
@@ -18,11 +23,16 @@ class Bag extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  deleteUserProduct = (userProductId) => {
+    userProductData.deleteUserProduct(userProductId)
+      .then(() => this.getAllUserProducts())
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const { userProducts } = this.state;
 
-    const SingleBagCard = () => userProducts && userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} />);
-    console.log(SingleBagCard());
+    const SingleBagCard = () => userProducts && userProducts.map((userProduct) => <SingleBag key={userProduct.id} userProduct={userProduct} deleteUserProduct={this.deleteUserProduct} />);
 
     return (
       <div className="Bag">
