@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faRandom } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 import shapes from '../../../helpers/props/shapes';
 
@@ -29,9 +30,17 @@ class SingleBag extends React.Component {
 
   static propTypes = {
     userProduct: shapes.userProductShape,
+    deleteUserProduct: PropTypes.func,
   }
 
   randomPic = () => picArr[Math.floor(Math.random() * picArr.length)];
+
+  deleteEvent = (e) => {
+    e.preventDefault();
+    const { userProduct, deleteUserProduct } = this.props;
+    console.log(userProduct.userProductId);
+    deleteUserProduct(userProduct.userProductId);
+  }
 
   render() {
     const { userProduct } = this.props;
@@ -51,7 +60,7 @@ class SingleBag extends React.Component {
                   <small className="text-muted">{userProduct.ingredients}</small>
                 </CardText>
 
-            <Button color="link"><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
+            <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
             <Button color="link"><FontAwesomeIcon icon={faRandom} size="sm"/></Button>
           </CardBody>
         </Card>
