@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import {
   InputGroup, InputGroupAddon, Input,
@@ -23,8 +24,13 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    const values = queryString.parse(this.props.location.search);
-    this.setState({ category: values.category });
+    const value = queryString.parse(this.props.location.search);
+    console.log(value);
+    if (value !== { category: '' }) {
+      this.setState({ category: value.category });
+    } else {
+      this.setState({ category: 'bronzer' });
+    }
     const categories = productData.getProductCategories();
     this.setState({ searchCategories: categories });
   }
@@ -86,6 +92,8 @@ class Search extends React.Component {
           </div>
         </div>
         </div>
+        <p className="text-muted">Can't find your product?</p>
+        <Link to="/face/new" className="btn btn-outline-secondary">Add it here</Link>
         <div className="d-flex container justify-content-center mb-2 flex-wrap SearchArea">
           {productCard}
         </div>

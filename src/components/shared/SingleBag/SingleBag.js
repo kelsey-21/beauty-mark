@@ -38,7 +38,6 @@ class SingleBag extends React.Component {
   deleteEvent = (e) => {
     e.preventDefault();
     const { userProduct, deleteUserProduct } = this.props;
-    console.log(userProduct.userProductId);
     deleteUserProduct(userProduct.userProductId);
   }
 

@@ -36,7 +36,6 @@ class SearchCard extends React.Component {
     const newUserProduct = {};
     newUserProduct.productId = product.id;
     newUserProduct.uid = uid;
-    console.log(newUserProduct);
   }
 
   render() {

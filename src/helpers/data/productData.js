@@ -132,10 +132,13 @@ const getAllProducts = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const saveProduct = (newProduct) => axios.post(`${baseUrl}/products.json`, newProduct);
+
 export default {
   createSeedData,
   getProductCategories,
   getFilteredProducts,
   getProductsById,
   getAllProducts,
+  saveProduct,
 };
