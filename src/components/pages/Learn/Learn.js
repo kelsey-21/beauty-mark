@@ -21,11 +21,13 @@ class Learn extends React.Component {
   }
 
   render() {
+    console.log(this.state.learns);
+    const riskCard = this.state.learns.map((learn) => <SingleLearn key={learn.id} learn={learn} />);
     return (
       <div className="Learn">
         <h1>Learn More</h1>
-        <div className="d-flex justify-content-center learn-more-icons">
-          {this.state.learns.map((learn) => <SingleLearn key={learn.id} learn={learn} />)}
+        <div className="d-flex justify-content-center learn-more-icons flex-wrap">
+          {riskCard}
         </div>
         <div className="d-flex justify-content-center selected-learn-more">
           Selected Single Learn

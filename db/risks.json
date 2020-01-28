@@ -18,7 +18,7 @@
     "description": "are petroleum-based compounds that are widely used in cosmetics as thickeners, solvents, softeners, and moisture-carriers.",
     "reasoning": "Depending on manufacturing processes, PEGs may be contaminated with measurable amounts of ethylene oxide and 1,4-dioxane. The International Agency for Research on Cancer classifies ethylene oxide as a known human carcinogen and 1,4-dioxane as a possible human carcinogen. Ethylene oxide can also harm the nervous system and the California Environmental Protection Agency has classified it as a developmental toxicant based on evidence that it may interfere with human development. 1,4-dioxane is also persistent.",
     "url": "https://davidsuzuki.org/queen-of-green/dirty-dozen-peg-compounds-contaminants/",
-    "imageUrl": "https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/src/helpers/images/analysis.png"
+    "imageUrl": "https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/src/helpers/images/chemical.png"
   },
   "risk4": {
     "name": "Parabens",

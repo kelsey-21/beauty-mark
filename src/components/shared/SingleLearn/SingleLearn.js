@@ -14,6 +14,7 @@ class SingleLearn extends React.Component {
     return (
       <div className="SingleLearn">
         <img className="single-learn-risk" src={learn.imageUrl} alt="risk-learn-more" />
+        <p>{learn.name}</p>
       </div>
     );
   }

@@ -1,3 +1,23 @@
 .single-learn-risk {
-  background: linear-gradient(to left, #ff6781, #eee);
+  width: 80px;
+  height: auto;
+  background: linear-gradient(to left, #ff6781, #f48fb1);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 50%;
 }
+
+@media (min-width:560px) {
+.SingleLearn {
+  width: 20%;
+  height: auto;
+  margin: 1%;
+}
+}
+@media (max-width:560px) {
+  .SingleLearn {
+    width: 45%;
+    height: auto;
+    margin: 1%;
+  }
+  }

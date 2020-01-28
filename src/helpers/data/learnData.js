@@ -4,7 +4,7 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
 const getAllLearns = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/learn.json`)
+  axios.get(`${baseUrl}/risks.json`)
     .then((response) => {
       const allLearns = response.data;
       const learns = [];
