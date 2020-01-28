@@ -48,7 +48,7 @@ class ProductForm extends React.Component {
         };
         userProductData.saveUserProduct(newUserProductInfo)
           .then(() => {
-            console.log('coming in here');
+            this.props.history.push('/');
           });
       })
       .catch((error) => console.error(error));
@@ -148,7 +148,7 @@ class ProductForm extends React.Component {
             required
             />
           </div>
-          <Link to="/" className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Link>
+          <Button className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
         </form>
       </div>
     );
