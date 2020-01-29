@@ -2,12 +2,14 @@ import React from 'react';
 
 import LearnData from '../../../helpers/data/learnData';
 import SingleLearn from '../../shared/SingleLearn/SingleLearn';
+import LearnDetail from '../../shared/LearnDetail/LearnDetail';
 
 import './Learn.scss';
 
 class Learn extends React.Component {
   state = {
     learns: [],
+    selectedLearn: {},
   }
 
   componentDidMount() {
@@ -20,9 +22,17 @@ class Learn extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  setSingleLearn = (learn) => {
+    this.setState({ selectedLearn: learn });
+  }
+
   render() {
-    console.log(this.state.learns);
-    const riskCard = this.state.learns.map((learn) => <SingleLearn key={learn.id} learn={learn} />);
+    console.log(this.state.setSingleLearn);
+
+    const riskCard = this.state.learns.map((learn) => <SingleLearn key={learn.id} learn={learn} setSingleLearn={this.setSingleLearn} />);
+
+    const { selectedLearn } = this.state;
+
     return (
       <div className="Learn">
         <h1>Learn More</h1>
@@ -30,7 +40,9 @@ class Learn extends React.Component {
           {riskCard}
         </div>
         <div className="d-flex justify-content-center selected-learn-more">
-          Selected Single Learn
+          {
+          (selectedLearn.id)
+            ? (<LearnDetail selectedLearn={selectedLearn} />) : ''}
         </div>
         <div className="credit-div">
         <div className="text-muted">Icons made by the following authors from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
