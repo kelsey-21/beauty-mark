@@ -5,6 +5,7 @@ import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
 import userProductData from '../../../helpers/data/userProductData';
 import authData from '../../../helpers/data/authData';
+import smash from '../../../helpers/data/smash';
 
 class ProductForm extends React.Component {
   state = {
@@ -81,7 +82,10 @@ class ProductForm extends React.Component {
         };
         userProductData.saveUserProduct(newUserProductInfo)
           .then(() => {
-            this.props.history.push('/');
+            smash.getProductRisks(newProductInfo)
+              .then(() => {
+                this.props.history.push('/');
+              });
           });
       })
       .catch((error) => console.error(error));
