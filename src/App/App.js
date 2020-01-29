@@ -17,6 +17,7 @@ import Search from '../components/pages/Search/Search';
 
 import authData from '../helpers/data/authData';
 import './App.scss';
+import smash from '../helpers/data/smash';
 
 authData.firebaseApp();
 
@@ -43,6 +44,7 @@ class App extends React.Component {
         this.setState({ authed: false });
       }
     });
+    smash.getProductRisks();
   }
 
   componentWillUnmount() {

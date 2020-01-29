@@ -1,5 +1,6 @@
 import productData from './productData';
 import userProductData from './userProductData';
+import learnData from './learnData';
 
 const getCompleteUserProducts = () => new Promise((resolve, reject) => {
   const compUserProducts = [];
@@ -22,4 +23,36 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getCompleteUserProducts };
+const getProductsWithIngredients = () => new Promise((resolve, reject) => {
+  const products = [];
+  productData.getAllProducts()
+    .then((allProducts) => {
+      allProducts.forEach((product) => {
+        const ingredients = product.ingredients.split(', ');
+        const newProduct = { ...product };
+        newProduct.ingredientArr = ingredients;
+        products.push(newProduct);
+      });
+      resolve(products);
+    })
+    .catch((error) => reject(error));
+});
+
+const getProductRisks = () => new Promise((resolve, reject) => {
+  productData.getAllProducts()
+    .then((allProducts) => {
+      learnData.getAllLearns()
+        .then((risks) => {
+          allProducts.forEach((product) => {
+            const ingredientsArr = product.ingredients.split(', ');
+            ingredientsArr.forEach((ingredient) => {
+              const matching = risks.find((risk) => risk.name === ingredient);
+              console.log(matching);
+            });
+          });
+        });
+    })
+    .catch((error) => reject(error));
+});
+
+export default { getCompleteUserProducts, getProductRisks };
