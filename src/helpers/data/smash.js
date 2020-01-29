@@ -39,7 +39,9 @@ const getProductRisks = () => new Promise((resolve, reject) => {
                   const productRiskObj = {};
                   productRiskObj.productid = product.id;
                   productRiskObj.riskId = 'risk8';
-                  productRisks.push(productRiskObj);
+                  if (productRisks.some((productRisk) => productRisk !== productRiskObj)) {
+                    productRisks.push(productRiskObj);
+                  }
                 } if (ingredientLC.match(/\wparaben/g)) {
                   const productRiskObj = {};
                   productRiskObj.productid = product.id;
@@ -86,9 +88,14 @@ const matchProductRisks = (product) => {
         if (!matching) {
           if (ingredientLC.includes('ci ')) {
             const productRiskObj = {};
-            productRiskObj.productid = product.id;
+            productRiskObj.productId = product.id;
             productRiskObj.riskId = 'risk8';
-            productRisks.push(productRiskObj);
+            const alreadyExists = productRisks.filter((productRisk) => productRisk.productId === productRiskObj.productId && productRisk.riskId === productRiskObj.riskId);
+            if (alreadyExists) {
+              console.log('true');
+            } else {
+              productRisks.push(productRiskObj);
+            }
           } if (ingredientLC.match(/\wparaben/g)) {
             const productRiskObj = {};
             productRiskObj.productid = product.id;

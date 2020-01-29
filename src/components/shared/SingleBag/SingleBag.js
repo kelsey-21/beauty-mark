@@ -62,7 +62,6 @@ class SingleBag extends React.Component {
                 </CardText>
 
             <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
-            <Button color="link"><FontAwesomeIcon icon={faRandom} size="sm"/></Button>
             {
               ((this.props.isAdmin) ? <Link to={`/face/update/${userProduct.productId}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
             }
