@@ -4,8 +4,8 @@ import { Button } from 'reactstrap';
 import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
 import userProductData from '../../../helpers/data/userProductData';
-import authData from '../../../helpers/data/authData';
 import smash from '../../../helpers/data/smash';
+import authData from '../../../helpers/data/authData';
 
 class ProductForm extends React.Component {
   state = {
