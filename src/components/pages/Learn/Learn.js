@@ -27,8 +27,6 @@ class Learn extends React.Component {
   }
 
   render() {
-    console.log(this.state.setSingleLearn);
-
     const riskCard = this.state.learns.map((learn) => <SingleLearn key={learn.id} learn={learn} setSingleLearn={this.setSingleLearn} />);
 
     const { selectedLearn } = this.state;

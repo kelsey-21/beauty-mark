@@ -5,7 +5,7 @@ import {
   CardTitle, CardText, CardImg,
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faRandom, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 import shapes from '../../../helpers/props/shapes';
@@ -62,7 +62,6 @@ class SingleBag extends React.Component {
                 </CardText>
 
             <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
-            <Button color="link"><FontAwesomeIcon icon={faRandom} size="sm"/></Button>
             {
               ((this.props.isAdmin) ? <Link to={`/face/update/${userProduct.productId}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
             }

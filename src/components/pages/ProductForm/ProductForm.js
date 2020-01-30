@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
 import userProductData from '../../../helpers/data/userProductData';
+import smash from '../../../helpers/data/smash';
 import authData from '../../../helpers/data/authData';
 
 class ProductForm extends React.Component {
@@ -81,7 +82,10 @@ class ProductForm extends React.Component {
         };
         userProductData.saveUserProduct(newUserProductInfo)
           .then(() => {
-            this.props.history.push('/');
+            smash.getProductRisks(newProductInfo)
+              .then(() => {
+                this.props.history.push('/');
+              });
           });
       })
       .catch((error) => console.error(error));
