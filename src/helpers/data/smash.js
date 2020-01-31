@@ -7,24 +7,24 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
-// const checkAvailability = (productRisks, productRiskObj) => productRisks.some((productRisk) => productRiskObj === productRisk);
-
 const getCompleteUserProducts = () => new Promise((resolve, reject) => {
   const compUserProducts = [];
   productData.getAllProducts()
     .then((allProducts) => {
       userProductData.getUserProducts()
         .then((userProducts) => {
-          userProducts.forEach((userProduct) => {
-            if (userProduct.id !== undefined) {
-              const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
-              newUserProduct.userProductId = userProduct.id;
-              newUserProduct.productId = userProduct.productId;
-              newUserProduct.uid = userProduct.uid;
-              compUserProducts.push(newUserProduct);
-            }
-          });
-          resolve(compUserProducts);
+          if (userProducts !== null) {
+            userProducts.forEach((userProduct) => {
+              if (userProduct.id !== undefined) {
+                const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
+                newUserProduct.userProductId = userProduct.id;
+                newUserProduct.productId = userProduct.productId;
+                newUserProduct.uid = userProduct.uid;
+                compUserProducts.push(newUserProduct);
+              }
+            });
+            resolve(compUserProducts);
+          }
         });
     })
     .catch((error) => reject(error));
@@ -108,13 +108,61 @@ const postInitialProductRisks = () => {
     .catch((error) => console.error(error));
 };
 
-const matchProductRisks = (product) => {
+const matchProductRisks = (product) => new Promise((resolve, reject) => {
   const productRisks = [];
+  const ingredientsArray = product.ingredients.split(', ');
+  const ingredientsArr = ingredientsArray.map((x) => x.toLowerCase());
   learnData.getAllLearns()
     .then((risks) => {
-      setProductRisksInnards(product, risks, productRisks);
+      risks.forEach((risk) => {
+        if (ingredientsArr.indexOf(risk.name) > -1) {
+          productRisks.push(risk.id);
+        }
+      });
+      if (ingredientsArr.find((ing) => ing.includes('ci '))) {
+        productRisks.push('risk8');
+      }
+      if (ingredientsArr.find((ing) => ing.match(/\wparaben/g))) {
+        productRisks.push('risk4');
+      }
+      if (ingredientsArr.find((ing) => ing.includes('polyethylene'))) {
+        productRisks.push('risk3');
+      }
+      if (ingredientsArr.find((ing) => ing.includes('hydroxyanisole'))) {
+        productRisks.push('risk5');
+      }
+      if (ingredientsArr.find((ing) => ing.includes('hydroxytoluene'))) {
+        productRisks.push('risk6');
+      }
+      if (ingredientsArr.find((ing) => ing.includes('hydroxytoluene'))) {
+        productRisks.push('risk6');
+      }
+      productRisks.forEach((id) => {
+        const newProductRisk = {
+          productId: product.id,
+          riskId: id,
+        };
+        axios.post(`${baseUrl}/productRisks.json`, newProductRisk);
+      });
+      resolve();
     })
-    .catch((error) => console.error(error));
-};
+    .catch((error) => reject(error));
+});
+
+// const matchProductRisks = (product) => new Promise((resolve, reject) => {
+//   const productRisks = [];
+//   learnData.getAllLearns()
+//     .then((risks) => {
+//       const ingredientsArr = product.ingredients.split(', ');
+//       ingredientsArr.forEach((ingredient) => {
+//         const ingredientLC = ingredient.toLowerCase();
+//         const matching = risks.find((risk) => risk.name.toLowerCase() === ingredientLC);
+//         if (!matching) {
+//         }
+//         resolve(productRisks);
+//       });
+//     })
+//     .catch((error) => reject(error));
+// });
 
 export default { getCompleteUserProducts, postInitialProductRisks, matchProductRisks };
