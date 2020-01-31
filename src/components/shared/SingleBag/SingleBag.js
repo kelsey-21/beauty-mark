@@ -46,8 +46,6 @@ class SingleBag extends React.Component {
   render() {
     const { userProduct } = this.props;
 
-    // const toggle = () => this.setState({ isOpen: !this.state.isOpen });
-
     return (
       <div className="SingleBagCard">
         <Card>

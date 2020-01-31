@@ -80,9 +80,11 @@ class ProductForm extends React.Component {
           productId: response.data.name,
           uid: authData.getUid(),
         };
+        const newProduct = { ...newProductInfo };
+        newProduct.id = response.data.name;
         userProductData.saveUserProduct(newUserProductInfo)
           .then(() => {
-            smash.getProductRisks(newProductInfo)
+            smash.matchProductRisks(newProduct)
               .then(() => {
                 this.props.history.push('/');
               });

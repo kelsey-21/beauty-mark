@@ -21,3 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 
 src/helpers/apiKeys.json
+
+package-lock.json
