@@ -30,24 +30,39 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getCompleteProducts = (id) => new Promise((resolve, reject) => {
+const getCompleteProducts = (productId) => new Promise((resolve, reject) => {
   const completeProducts = [];
-  productData.getProductById(id)
+  productData.getProductById(productId)
     .then((product) => {
       learnData.getAllProductRisks()
         .then((allProductRisks) => {
-          allProductRisks.forEach((productRisk) => {
-            if (productRisk.id) {
-              if (product.id === productRisk.productid) {
-                const newProductRisk = { ...product };
-                newProductRisk.productRiskId = productRisk.id;
-                newProductRisk.productId = productRisk.productid;
-                newProductRisk.riskId = productRisk.riskId;
-                completeProducts.push(newProductRisk);
-              }
-            }
-          });
-          resolve(completeProducts);
+          const filteredProductRisks = allProductRisks.filter((productRisk) => productRisk.productid === productId);
+          learnData.getAllLearns()
+            .then((risks) => {
+              risks.forEach((risk) => {
+                filteredProductRisks.forEach((productRisk) => {
+                  if (productRisk.id) {
+                    if (risk.id === productRisk.riskId) {
+                      const newProductRisk = {};
+                      newProductRisk.productRiskId = productRisk.id;
+                      newProductRisk.productId = productRisk.productid;
+                      newProductRisk.riskId = productRisk.riskId;
+                      newProductRisk.productName = product.data.name;
+                      newProductRisk.productDescription = product.data.description;
+                      newProductRisk.productIngredients = product.data.ingredients;
+                      newProductRisk.productBrand = product.data.brand;
+                      newProductRisk.productCategory = product.data.category;
+                      newProductRisk.riskName = risk.name;
+                      newProductRisk.riskImage = risk.imageUrl;
+                      completeProducts.push(newProductRisk);
+                      console.log(newProductRisk);
+                    }
+                  }
+                });
+                console.log(completeProducts);
+                resolve(completeProducts);
+              });
+            });
         });
     })
     .catch((error) => reject(error));
