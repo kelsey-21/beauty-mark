@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'reactstrap';
@@ -70,4 +70,4 @@ class SearchCard extends React.Component {
   }
 }
 
-export default SearchCard;
+export default withRouter(SearchCard);

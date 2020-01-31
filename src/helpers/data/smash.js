@@ -15,7 +15,7 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
         .then((userProducts) => {
           if (userProducts !== null) {
             userProducts.forEach((userProduct) => {
-              if (userProduct.id !== undefined) {
+              if (userProduct.id) {
                 const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
                 newUserProduct.userProductId = userProduct.id;
                 newUserProduct.productId = userProduct.productId;
@@ -29,6 +29,26 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+
+// const getCompleteProducts = (id) => new Promise((resolve, reject) => {
+//   const completeProducts = [];
+//   productData.getProductById(id)
+//     .then((product) => {
+//       learnData.getAllProductRisks()
+//         .then((allProductRisks) => {
+//           allProductRisks.forEach((productRisk) => {
+//             if (productRisk.id) {
+//               const newProductRisk = allProducts.find((product) => product.id === productRisk.productId);
+//               newProductRisk.productRiskId = productRisk.id;
+//               newProductRisk.productId = productRisk.productId;
+//               newProductRisk.riskId = productRisk.riskId;
+//               console.log(newProductRisk);
+//             }
+//           });
+//         });
+//     })
+//     .catch((error) => reject(error));
+// });
 
 const setProductRisksInnards = (product, risks, productRisks) => {
   const ingredientsArr = product.ingredients.split(', ');
@@ -148,21 +168,5 @@ const matchProductRisks = (product) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
-
-// const matchProductRisks = (product) => new Promise((resolve, reject) => {
-//   const productRisks = [];
-//   learnData.getAllLearns()
-//     .then((risks) => {
-//       const ingredientsArr = product.ingredients.split(', ');
-//       ingredientsArr.forEach((ingredient) => {
-//         const ingredientLC = ingredient.toLowerCase();
-//         const matching = risks.find((risk) => risk.name.toLowerCase() === ingredientLC);
-//         if (!matching) {
-//         }
-//         resolve(productRisks);
-//       });
-//     })
-//     .catch((error) => reject(error));
-// });
 
 export default { getCompleteUserProducts, postInitialProductRisks, matchProductRisks };

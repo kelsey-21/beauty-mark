@@ -1,22 +1,22 @@
 {
   "userProduct1": {
-    "productId": "-LzAHbJ27YVGECyTQC45",
+    "productId": "product1",
     "uid": "zydbWlIlYufAZU5qegcHhCpze3h2"
   },
   "userProduct2": {
-    "productId": "-LzAHbM4SDZTeHnYZ2GL",
+    "productId": "product23",
     "uid": "zydbWlIlYufAZU5qegcHhCpze3h2"
   },
   "userProduct3": {
-    "productId": "-LzAHba3el8RmOQFlYK1",
+    "productId": "product334",
     "uid": "zydbWlIlYufAZU5qegcHhCpze3h2"
   },
   "userProduct4": {
-    "productId": "-LzAHbMBqhXTJZ12P9HA",
+    "productId": "product112",
     "uid": "zydbWlIlYufAZU5qegcHhCpze3h2"
   },
   "userProduct5": {
-    "productId": "-LzAHbJ27YVGECyTQC45",
+    "productId": "product112",
     "uid": "user12345"
   }
 }
