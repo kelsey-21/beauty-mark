@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
+  BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -12,6 +9,7 @@ import Auth from '../components/pages/Auth/Auth';
 import Face from '../components/pages/Face/Face';
 import Learn from '../components/pages/Learn/Learn';
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
+import ProductDetail from '../components/pages/ProductDetail/ProductDetail';
 import ProductForm from '../components/pages/ProductForm/ProductForm';
 import Search from '../components/pages/Search/Search';
 
@@ -62,6 +60,7 @@ class App extends React.Component {
             <PrivateRoute path="/learn" exact component={Learn} authed={authed} />
             <PrivateRoute path="/face/new" exact component={ProductForm} authed={authed} />
             <PrivateRoute path="/face/update/:productId" exact component={ProductForm} authed={authed} />
+            <PrivateRoute path="/face/product/:productId" exact component={ProductDetail} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
           </Switch>
         </Router>

@@ -26,7 +26,9 @@ const getUserProducts = () => new Promise((resolve, reject) => {
   }
 });
 
-const deleteUserProduct = (userProductId, productId) => new Promise((resolve, reject) => {
+const deleteUserProduct = (userProductId) => axios.delete(`${baseUrl}/userProducts/${userProductId}.json`);
+
+const deleteUserProductMaybe = (userProductId, productId) => new Promise((resolve, reject) => {
   axios.delete(`${baseUrl}/userProducts/${userProductId}.json`)
     .then(() => {
       deleteProductRisks(productId);
@@ -49,4 +51,9 @@ const deleteProductRisks = (productId) => new Promise((resolve, reject) => {
 
 const saveUserProduct = (newProduct) => axios.post(`${baseUrl}/userProducts.json`, newProduct);
 
-export default { getUserProducts, deleteUserProduct, saveUserProduct };
+export default {
+  getUserProducts,
+  deleteUserProduct,
+  saveUserProduct,
+  deleteUserProductMaybe,
+};

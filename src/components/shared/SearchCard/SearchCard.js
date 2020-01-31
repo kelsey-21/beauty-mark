@@ -7,7 +7,6 @@ import { Button } from 'reactstrap';
 import shapes from '../../../helpers/props/shapes';
 import authData from '../../../helpers/data/authData';
 import userProductData from '../../../helpers/data/userProductData';
-import smash from '../../../helpers/data/smash';
 
 import Pink from '../../../helpers/images/Pink.jpeg';
 import Red from '../../../helpers/images/Red.jpeg';
@@ -39,10 +38,7 @@ class SearchCard extends React.Component {
     newUserProduct.uid = uid;
     userProductData.saveUserProduct(newUserProduct)
       .then(() => {
-        smash.matchProductRisks(product)
-          .then(() => {
-            this.props.history.push('/');
-          });
+        this.props.history.push('/');
       })
       .catch((error) => console.error(error));
   }

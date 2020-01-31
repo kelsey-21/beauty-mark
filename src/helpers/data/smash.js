@@ -30,25 +30,28 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const getCompleteProducts = (id) => new Promise((resolve, reject) => {
-//   const completeProducts = [];
-//   productData.getProductById(id)
-//     .then((product) => {
-//       learnData.getAllProductRisks()
-//         .then((allProductRisks) => {
-//           allProductRisks.forEach((productRisk) => {
-//             if (productRisk.id) {
-//               const newProductRisk = allProducts.find((product) => product.id === productRisk.productId);
-//               newProductRisk.productRiskId = productRisk.id;
-//               newProductRisk.productId = productRisk.productId;
-//               newProductRisk.riskId = productRisk.riskId;
-//               console.log(newProductRisk);
-//             }
-//           });
-//         });
-//     })
-//     .catch((error) => reject(error));
-// });
+const getCompleteProducts = (id) => new Promise((resolve, reject) => {
+  const completeProducts = [];
+  productData.getProductById(id)
+    .then((product) => {
+      learnData.getAllProductRisks()
+        .then((allProductRisks) => {
+          allProductRisks.forEach((productRisk) => {
+            if (productRisk.id) {
+              if (product.id === productRisk.productid) {
+                const newProductRisk = { ...product };
+                newProductRisk.productRiskId = productRisk.id;
+                newProductRisk.productId = productRisk.productid;
+                newProductRisk.riskId = productRisk.riskId;
+                completeProducts.push(newProductRisk);
+              }
+            }
+          });
+          resolve(completeProducts);
+        });
+    })
+    .catch((error) => reject(error));
+});
 
 const setProductRisksInnards = (product, risks, productRisks) => {
   const ingredientsArr = product.ingredients.split(', ');
@@ -169,4 +172,9 @@ const matchProductRisks = (product) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getCompleteUserProducts, postInitialProductRisks, matchProductRisks };
+export default {
+  getCompleteUserProducts,
+  postInitialProductRisks,
+  matchProductRisks,
+  getCompleteProducts,
+};
