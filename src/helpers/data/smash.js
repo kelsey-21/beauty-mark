@@ -31,36 +31,27 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
 });
 
 const getCompleteProducts = (productId) => new Promise((resolve, reject) => {
-  const completeProducts = [];
   productData.getProductById(productId)
     .then((product) => {
-      learnData.getAllProductRisks()
+      learnData.getAllProductRisksByProductId(productId)
         .then((allProductRisks) => {
-          const filteredProductRisks = allProductRisks.filter((productRisk) => productRisk.productid === productId);
           learnData.getAllLearns()
             .then((risks) => {
+              const requiredRisks = [];
               risks.forEach((risk) => {
-                filteredProductRisks.forEach((productRisk) => {
+                allProductRisks.forEach((productRisk) => {
                   if (productRisk.id) {
                     if (risk.id === productRisk.riskId) {
-                      const newProductRisk = {};
+                      const newProductRisk = { ...risk };
                       newProductRisk.productRiskId = productRisk.id;
-                      newProductRisk.productId = productRisk.productid;
-                      newProductRisk.riskId = productRisk.riskId;
-                      newProductRisk.productName = product.data.name;
-                      newProductRisk.productDescription = product.data.description;
-                      newProductRisk.productIngredients = product.data.ingredients;
-                      newProductRisk.productBrand = product.data.brand;
-                      newProductRisk.productCategory = product.data.category;
-                      newProductRisk.riskName = risk.name;
-                      newProductRisk.riskImage = risk.imageUrl;
-                      completeProducts.push(newProductRisk);
-                      console.log(newProductRisk);
+                      requiredRisks.push(newProductRisk);
                     }
                   }
                 });
-                console.log(completeProducts);
-                resolve(completeProducts);
+                const newCompleteProduct = { ...product.data };
+                newCompleteProduct.risks = requiredRisks;
+                console.log(newCompleteProduct);
+                resolve(newCompleteProduct);
               });
             });
         });

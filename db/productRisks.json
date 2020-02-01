@@ -1104,23 +1104,23 @@
     "riskId" : "risk8"
   },
   "productRisk1" : {
-    "productId" : "product10",
+    "productid" : "product10",
     "riskId" : "risk2"
   },
   "productRisk2" : {
-    "productId" : "product23",
+    "productid" : "product23",
     "riskId" : "risk1"
   },
   "productRisk3" : {
-    "productId" : "product334",
+    "productid" : "product334",
     "riskId" : "risk4"
   },
   "productRisk4" : {
-    "productId" : "product334",
+    "productid" : "product334",
     "riskId" : "risk1"
   },
   "productRisk5" : {
-    "productId" : "product01",
+    "productid" : "product01",
     "riskId" : "risk5"
   }
 }

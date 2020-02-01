@@ -37,4 +37,21 @@ const getAllProductRisks = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getAllLearns, getAllProductRisks };
+const getAllProductRisksByProductId = (productId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/productRisks.json?orderBy="productid"&equalTo="${productId}"`)
+    .then((response) => {
+      const allProductRisks = response.data;
+      const productRisks = [];
+      if (productRisks != null) {
+        Object.keys(allProductRisks).forEach((fbId) => {
+          const newRisk = allProductRisks[fbId];
+          newRisk.id = fbId;
+          productRisks.push(newRisk);
+        });
+      }
+      resolve(productRisks);
+    })
+    .catch((error) => reject(error));
+});
+
+export default { getAllLearns, getAllProductRisks, getAllProductRisksByProductId };
