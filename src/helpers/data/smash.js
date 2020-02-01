@@ -15,7 +15,7 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
         .then((userProducts) => {
           if (userProducts !== null) {
             userProducts.forEach((userProduct) => {
-              if (userProduct.id !== undefined) {
+              if (userProduct.id) {
                 const newUserProduct = allProducts.find((product) => product.id === userProduct.productId);
                 newUserProduct.userProductId = userProduct.id;
                 newUserProduct.productId = userProduct.productId;
@@ -25,6 +25,34 @@ const getCompleteUserProducts = () => new Promise((resolve, reject) => {
             });
             resolve(compUserProducts);
           }
+        });
+    })
+    .catch((error) => reject(error));
+});
+
+const getCompleteProducts = (productId) => new Promise((resolve, reject) => {
+  productData.getProductById(productId)
+    .then((product) => {
+      learnData.getAllProductRisksByProductId(productId)
+        .then((allProductRisks) => {
+          learnData.getAllLearns()
+            .then((risks) => {
+              const requiredRisks = [];
+              risks.forEach((risk) => {
+                allProductRisks.forEach((productRisk) => {
+                  if (productRisk.id) {
+                    if (risk.id === productRisk.riskId) {
+                      const newProductRisk = { ...risk };
+                      newProductRisk.productRiskId = productRisk.id;
+                      requiredRisks.push(newProductRisk);
+                    }
+                  }
+                });
+                const newCompleteProduct = { ...product.data };
+                newCompleteProduct.risks = requiredRisks;
+                resolve(newCompleteProduct);
+              });
+            });
         });
     })
     .catch((error) => reject(error));
@@ -149,20 +177,9 @@ const matchProductRisks = (product) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const matchProductRisks = (product) => new Promise((resolve, reject) => {
-//   const productRisks = [];
-//   learnData.getAllLearns()
-//     .then((risks) => {
-//       const ingredientsArr = product.ingredients.split(', ');
-//       ingredientsArr.forEach((ingredient) => {
-//         const ingredientLC = ingredient.toLowerCase();
-//         const matching = risks.find((risk) => risk.name.toLowerCase() === ingredientLC);
-//         if (!matching) {
-//         }
-//         resolve(productRisks);
-//       });
-//     })
-//     .catch((error) => reject(error));
-// });
-
-export default { getCompleteUserProducts, postInitialProductRisks, matchProductRisks };
+export default {
+  getCompleteUserProducts,
+  postInitialProductRisks,
+  matchProductRisks,
+  getCompleteProducts,
+};

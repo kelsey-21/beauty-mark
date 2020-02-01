@@ -32,4 +32,9 @@ const learnShape = PropTypes.shape({
   name: PropTypes.string.required,
 });
 
-export default { categoryShape, productShape, userProductShape, learnShape };
+export default {
+  categoryShape,
+  productShape,
+  userProductShape,
+  learnShape,
+};
