@@ -23,3 +23,5 @@ yarn-error.log*
 src/helpers/apiKeys.json
 
 package-lock.json
+
+.firebase/
