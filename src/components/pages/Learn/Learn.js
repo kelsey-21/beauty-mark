@@ -1,4 +1,5 @@
 import React from 'react';
+import queryString from 'query-string';
 
 import LearnData from '../../../helpers/data/learnData';
 import SingleLearn from '../../shared/SingleLearn/SingleLearn';
@@ -13,7 +14,21 @@ class Learn extends React.Component {
   }
 
   componentDidMount() {
+    const value = queryString.parse(this.props.location.search);
+    if (value !== { risk: '' }) {
+      LearnData.getLearnById(value.risk)
+        .then((learn) => {
+          const learnObj = { ...learn.data };
+          learnObj.id = value.risk;
+          this.setSingleLearnFromQueryString(learnObj);
+        })
+        .catch((error) => console.error(error));
+    }
     this.getAllLearns();
+  }
+
+  setSingleLearnFromQueryString = (learn) => {
+    this.setState({ selectedLearn: learn });
   }
 
   getAllLearns = () => {
@@ -44,13 +59,9 @@ class Learn extends React.Component {
         </div>
         <div className="credit-div">
         <div className="text-muted">Icons made by the following authors from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-          <ul>
-            <li><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></li>
-            <li><a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a></li>
-            <li><a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a></li>
-            <li><a href="https://www.flaticon.com/authors/surang" title="surang">surang</a></li>
-            <li><a href="https://www.flaticon.com/authors/mynamepong" title="mynamepong">mynamepong</a></li>
-          </ul>
+          <p>
+            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a>, <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a>, <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a>, and <a href="https://www.flaticon.com/authors/mynamepong" title="mynamepong">mynamepong</a>
+          </p>
         </div>
         </div>
       </div>

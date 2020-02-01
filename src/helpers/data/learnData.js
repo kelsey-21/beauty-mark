@@ -54,4 +54,11 @@ const getAllProductRisksByProductId = (productId) => new Promise((resolve, rejec
     .catch((error) => reject(error));
 });
 
-export default { getAllLearns, getAllProductRisks, getAllProductRisksByProductId };
+const getLearnById = (riskId) => axios.get(`${baseUrl}/risks/${riskId}.json`);
+
+export default {
+  getAllLearns,
+  getAllProductRisks,
+  getAllProductRisksByProductId,
+  getLearnById,
+};
