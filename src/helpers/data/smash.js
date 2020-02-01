@@ -50,7 +50,6 @@ const getCompleteProducts = (productId) => new Promise((resolve, reject) => {
                 });
                 const newCompleteProduct = { ...product.data };
                 newCompleteProduct.risks = requiredRisks;
-                console.log(newCompleteProduct);
                 resolve(newCompleteProduct);
               });
             });
