@@ -1119,6 +1119,10 @@
     "productid" : "product334",
     "riskId" : "risk1"
   },
+    "productRisk286" : {
+    "productid" : "product356",
+    "riskId" : "risk8"
+  },
   "productRisk5" : {
     "productid" : "product01",
     "riskId" : "risk5"

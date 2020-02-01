@@ -83,6 +83,14 @@ const categories = [
     id: 'category7',
     category: 'eyeliner',
   },
+  {
+    id: 'category8',
+    category: 'concealer',
+  },
+  {
+    id: 'category9',
+    category: 'powder',
+  },
 ];
 
 const getProductCategories = () => categories;

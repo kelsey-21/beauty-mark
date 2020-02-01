@@ -1,52 +1,72 @@
+// LEFTS
 .eyeshadow {
-  top: 10%;
-  position: absolute;
-  text-align: left;
-  width: 30%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-.eyeliner {
   top: 15%;
-  right: 5%;
-  position: absolute;
-  text-align: right;
-  width: 30%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-.mascara {
-  top: 20%;
   position: absolute;
   text-align: left;
-  width: 30%;
+  width: 38%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.mascara {
+  top: 25%;
+  position: absolute;
+  text-align: left;
+  width: 38%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .lipstick {
-  top: 45%;
+  top: 50%;
   position: absolute;
   text-align: left;
-  width: 30%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-.foundation {
-  top: 5%;
-  right: 5%;
-  position: absolute;
-  text-align: right;
-  width: 30%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-.bronzer {
-  top: 30%;
-  right: 5%;
-  position: absolute;
-  text-align: right;
-  width: 30%;
+  width: 38%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .blush {
-  top: 35%;
+  top: 40%;
   position: absolute;
   text-align: left;
-  width: 30%;
+  width: 38%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+// RIGHTS
+.foundation {
+  top: 50%;
+  right: 2%;
+  position: absolute;
+  text-align: right;
+  width: 35%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.concealer {
+  top: 25%;
+  right: 2%;
+  position: absolute;
+  text-align: right;
+  width: 35%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.powder {
+  top: 60%;
+  right: 2%;
+  position: absolute;
+  text-align: right;
+  width: 35%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.eyeliner {
+  top: 35%;
+  right: 2%;
+  position: absolute;
+  text-align: right;
+  width: 35%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.bronzer {
+  top: 15%;
+  right: 2%;
+  position: absolute;
+  text-align: right;
+  width: 35%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }

@@ -2227,7 +2227,7 @@
   },
 "product336": {
     "brand" : "fenty beauty",
-    "category" : "foundation",
+    "category" : "concealer",
     "description" : "A creamy, longwear, creaseproof liquid concealer that delivers light-as-air, medium to full coverage in a groundbreaking range of 50 easy-to-shop soft matte shades.",
     "ingredients" : "AQUA/WATER/EAU, HYDROGENATED DIDECENE, HYDROGENATED POLYISOBUTENE, DISTEARDIMONIUM HECTORITE, TRIMETHYLSILOXYSILICATE, CETYL PEG/PPG-10/1 DIMETHICONE, GLYCERIN, NYLON-12, DIMETHICONE, METHICONE, SODIUM CHLORIDE, ACRYLATES/POLYTRIMETHYLSILOXYMETHACRYLATE COPOLYMER, POLYMETHYLSILSESQUIOXANE, HYDROGENATED STYRENE/ISOPRENE COPOLYMER, HYDROXYACETOPHENONE, LAURYL PEG-8 DIMETHICONE, HDI/TRIMETHYLOL HEXYLLACTONE CROSSPOLYMER, 1,2-HEXANEDIOL, CAPRYLYL GLYCOL, TOCOPHERYL ACETATE, TRISODIUM ETHYLENEDIAMINE DISUCCINATE, TALC, LAUROYL LYSINE, COMBRETUM FRUTICOSUM FLOWER NECTAR, ALCOHOL, BUTYLENE GLYCOL, PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE, CENTELLA ASIATICA LEAF EXTRACT, CAMELLIA SINENSIS LEAF EXTRACT. MAY CONTAIN/PEUT CONTENIR (+/-): TITANIUM DIOXIDE (CI 77891), IRON OXIDES (CI 77491, CI 77492, CI 77499).",
     "name" : "PRO FILT'R INSTANT RETOUCH CONCEALER"
@@ -2315,6 +2315,13 @@
     "description" : "A matte lipstick that features a long-lasting, buildable, and hydrating formula.",
     "ingredients" : "Neopentyl Glycol Dicaprylate/Dicaprate, Trimethylolpropane Triisostearate, Dimethicone, Cera Microcristallina/Cire Microcristalline, Polyethylene, Polybutene, Dimethicone Crosspolymer, Silica, Dicalcium Phosphate, Ethyl Vanillin, Caprylic/Capric Triglyceride, Tocopherol, Carthamus Tinctorius (Safflower) Seed Oil, Zea Mays (Corn) Oil, Pentaerythrityl Tetra-Di-t-Butyl Hydroxyhydrocinnamate, Carica Papaya (Papaya) Fruit Extract, Orchis Mascula Flower Extract, Bixa Orellana Seed Extract, BHT, Tocopheryl Acetate, Tin Oxide, [May Contain/ Peut Contenir (+/-): Mica (CI 77019), Titanium Dioxide (CI 77891), Iron Oxides (CI 77491, CI 77492, CI 77499), Red 28 Lake (CI 45410), Red 7 Lake (CI 15850), Red 6 (CI 15850), Blue 1 Lake (CI 42090), Yellow 6 Lake(CI 15985), Yellow 5 Lake (CI 19140), Carmine (CI 75470)].",
     "name" : "matte revolution lipstick"
+  },
+  "product356" : {
+    "brand" : "laura mercier",
+    "category" : "powder",
+    "description" : "A lightweight, easy-to-apply, loose powder that blends effortlessly to set makeup for up to 12 hours.",
+    "ingredients" : "Talc, Magnesium Myristate, Nylon-12, Caprylic/Capric Triglyceride, EthylhexylPalmitate, Zea Mays (Corn) Starch, Sodium Dehydroacetate, Methylparaben, Lauroyl Lysine, Propylparaben, Polymethyl Methacrylate, Butylparaben, Ascorbyl Palmitate, Glycine Soja (Soybean) Oil, Tocopherol, Methicone. May contain: Ultramarines (Cl 77007), Iron Oxides (Cl 77491, Cl 77492, Cl 77499)",
+    "name" : "Translucent Loose Setting Powder"
   },
 "product349": {
     "brand" : "charlotte tilbury",
