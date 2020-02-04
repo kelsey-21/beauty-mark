@@ -54,7 +54,7 @@ class SearchCard extends React.Component {
           <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <p className="card-title">{product.brand} {product.category}</p>
-          <p className="card-text text-muted">Ingredients {product.ingredients}</p>
+          <p className="card-text ingredients-text text-muted">Ingredients {product.ingredients}</p>
           <Button color="link" onClick={this.saveProductEvent}><FontAwesomeIcon icon={faPlus} size="sm"/></Button>
           {
               ((this.props.isAdmin) ? <Link to={`/face/update/${product.id}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
