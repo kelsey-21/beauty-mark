@@ -60,7 +60,7 @@ class Learn extends React.Component {
         <div className="credit-div">
         <div className="text-muted">Icons made by the following authors from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
           <p>
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a>, <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a>, <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a>, and <a href="https://www.flaticon.com/authors/mynamepong" title="mynamepong">mynamepong</a>
+            <a href="https://www.flaticon.com/authors/freepik" target="_blank" rel="noopener noreferrer" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/fjstudio" target="_blank" rel="noopener noreferrer" title="fjstudio">fjstudio</a>, <a href="https://www.flaticon.com/authors/catkuro" target="_blank" rel="noopener noreferrer" title="catkuro">catkuro</a>, <a href="https://www.flaticon.com/authors/surang" target="_blank" rel="noopener noreferrer" title="surang">surang</a>, and <a href="https://www.flaticon.com/authors/mynamepong" target="_blank" rel="noopener noreferrer" title="mynamepong">mynamepong</a>
           </p>
         </div>
         </div>
