@@ -1,4 +1,7 @@
 @media (min-width:960px) {
+  .Face-page {
+    max-height: 88vh;
+  }
   .Face {
     width: 50%;
     position: absolute;
@@ -16,7 +19,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90vh;
+    height: 88vh;
     overflow: hidden;
   }
   ::-webkit-scrollbar {
