@@ -1,4 +1,4 @@
-@media (min-width:960px) {
+@media (min-width:1025px) {
   .Face-page {
     max-height: 85vh;
   }
@@ -28,14 +28,15 @@
   }
 }
 
-@media (max-width:960px) {
+@media (max-width:1025px) {
   .Face {
     width: 100%;
     margin: 4%;
   }
   .bag-div {
     width: 100%;
-    margin: 2%;
+    margin: 4% 2%;
+    padding: 2% 0;
     font-size: small;
     display: flex;
     justify-content: center;

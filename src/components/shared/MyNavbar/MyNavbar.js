@@ -2,7 +2,14 @@ import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
+import {
+  Button,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import BM from '../../../helpers/images/BM.png';
@@ -10,6 +17,10 @@ import BM from '../../../helpers/images/BM.png';
 import './MyNavbar.scss';
 
 class MyNavbar extends React.Component {
+  state = {
+    isOpen: false,
+  }
+
   static propTypes = {
     authed: PropTypes.bool,
   }
@@ -19,50 +30,61 @@ class MyNavbar extends React.Component {
     firebase.auth().signOut();
   }
 
+  toggleNav = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
   render() {
     const { authed } = this.props;
     const buildNavbar = () => {
       if (authed) {
         return (
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Face</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/learn">Learn More</Link>
-            </li>
-            <li className="nav-item">
+          <Nav className="navbar-nav ml-auto">
+          <NavItem>
+            <Link className="nav-link" to="/">Face</Link>
+          </NavItem>
+          <NavItem>
+            <Link className="nav-link" to="/learn">Learn More</Link>
+          </NavItem>
+          <NavItem>
             <Button onClick={this.logOutClickEvent}>
               Logout
             </Button>
-            </li>
-          </ul>
+          </NavItem>
+          </Nav>
         );
       }
-      return (<ul className="navbar-nav ml-auto"></ul>);
+      return (<ul className="navbar-nav mr-auto"></ul>);
     };
 
     return (
       <div className="MyNavbar">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link className="navbar-brand" to="/"><img className="navbar-logo" src={BM} alt="Beauty Mark Logo" /></Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            aria-controls="navbarSupportedContent"
-            data-target="#navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          { buildNavbar() }
-          </div>
-        </nav>
+        <Navbar className="navbar navbar-expand-lg navbar-light bg-light">
+          <NavItem>
+            <Link className="navbar-brand" to="/"><img className="navbar-logo" src={BM} alt="Beauty Mark Logo" /></Link>
+          </NavItem>
+          <NavbarToggler onClick={this.toggleNav} className="toggler" />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            { buildNavbar() }
+          </Collapse>
+        </Navbar>
       </div>
     );
   }
 }
+
+// <ul className="navbar-nav ml-auto">
+//   <li className="nav-item">
+//     <Link className="nav-link" to="/">Face</Link>
+//   </li>
+//   <li className="nav-item">
+//     <Link className="nav-link" to="/learn">Learn More</Link>
+//   </li>
+//   <li className="nav-item">
+//   <Button onClick={this.logOutClickEvent}>
+//     Logout
+//   </Button>
+//   </li>
+// </ul>
 
 export default MyNavbar;
