@@ -104,8 +104,10 @@ class Search extends React.Component {
           </div>
         </div>
         </div>
+        <div className="search-details">
         <p className="text-muted">Can't find your product?</p>
         <Link to="/face/new" className="btn btn-outline-secondary">Add it here</Link>
+        </div>
         <div className="d-flex container justify-content-center mb-2 flex-wrap SearchArea">
           {productCard}
         </div>
