@@ -14,7 +14,7 @@ class RiskInfo extends React.Component {
 
     return (
       <div className="RiskInfo">
-        <Link to="/learn"><img className="risk-info-images" src={risk.imageUrl} alt={risk.name} /></Link>
+        <Link to={`/learn?risk=${this.props.risk.id}`}><img className="risk-info-images" src={risk.imageUrl} alt={risk.name} /></Link>
         <h6>{risk.name}</h6>
       </div>
     );

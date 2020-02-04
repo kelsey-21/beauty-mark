@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import BM from '../../../helpers/images/BM.png';
+
+import './MyNavbar.scss';
+
 class MyNavbar extends React.Component {
   static propTypes = {
     authed: PropTypes.bool,
@@ -41,7 +45,7 @@ class MyNavbar extends React.Component {
     return (
       <div className="MyNavbar">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link className="navbar-brand" to="/">Beauty Mark</Link>
+          <Link className="navbar-brand" to="/"><img className="navbar-logo" src={BM} alt="Beauty Mark Logo" /></Link>
           <button
             className="navbar-toggler"
             type="button"

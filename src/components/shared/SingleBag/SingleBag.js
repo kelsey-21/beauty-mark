@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Card, CardBody, Button,
+  CardBody, Button,
   CardTitle, CardText, CardImg,
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,19 +47,19 @@ class SingleBag extends React.Component {
     const { userProduct } = this.props;
 
     return (
-      <div className="SingleBagCard">
-        <Card>
-          <CardImg top width="100%" src={this.randomPic()} alt="Card image cap" />
+      <div className="single-bag-card">
+        <div>
+          <CardImg className="single-bag-image" top width="100%" src={this.randomPic()} alt="Card image cap" />
           <CardBody>
-            <CardTitle>{userProduct.name}</CardTitle>
-            <CardText>{userProduct.brand}</CardText>
+            <CardTitle className="single-bag-title">{userProduct.name}</CardTitle>
+            <CardText className="single-bag-text">{userProduct.brand}</CardText>
             <CardText><Link to={`/face/product/${userProduct.productId}`} className="btn btn-outline-secondary" color="link">View More</Link></CardText>
             <Button color="link" onClick={this.deleteEvent}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
             {
               ((this.props.isAdmin) ? <Link to={`/face/update/${userProduct.productId}`} color="link" onClick={this.updateEvent}><FontAwesomeIcon icon={faPen} size="xs"/></Link> : '')
             }
           </CardBody>
-        </Card>
+        </div>
       </div>
     );
   }

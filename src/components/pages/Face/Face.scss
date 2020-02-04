@@ -1,4 +1,7 @@
 @media (min-width:960px) {
+  .Face-page {
+    max-height: 88vh;
+  }
   .Face {
     width: 50%;
     position: absolute;
@@ -16,7 +19,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90vh;
+    height: 88vh;
     overflow: hidden;
   }
   ::-webkit-scrollbar {
@@ -27,26 +30,29 @@
 
 @media (max-width:960px) {
   .Face {
-    width: 90%;
+    width: 100%;
     position: absolute;
     top: 10%;
-    height: 80%;
+    margin: auto;
   }
   .bag-div {
-    width: 90%;
-    margin: 1%;
-    top: 105%;
+    width: 100%;
+    margin: 0 auto;
+    top: 67%;
     position: absolute;
-    height: 80%;
-    overflow-y: scroll;
+    font-size: small;
+    display: flex;
+    justify-content: center;
   }
   .face-image {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90vh;
+    height: auto;
+    width: 100%;
     overflow: hidden;
+    margin: auto;
   }
 }
 

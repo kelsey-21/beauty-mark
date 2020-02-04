@@ -33,7 +33,6 @@ class Search extends React.Component {
 
   componentDidMount() {
     const value = queryString.parse(this.props.location.search);
-    console.log(value);
     if (value !== { category: '' }) {
       this.setState({ category: value.category });
     } else {
