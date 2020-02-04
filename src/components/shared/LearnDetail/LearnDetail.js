@@ -22,7 +22,7 @@ class LearnDetail extends React.Component {
             <h5 className="card-title">{selectedLearn.name}</h5>
             <p className="card-text">{selectedLearn.name} {selectedLearn.description}</p>
             <p className="card-text">{selectedLearn.reasoning}</p>
-            <p className="card-text"><small className="text-muted"><a href={selectedLearn.url}>Click for more information</a></small></p>
+            <p className="card-text"><small className="text-muted"><a href={selectedLearn.url} target="_blank" rel="noopener noreferrer">Click for more information</a></small></p>
           </div>
         </div>
       </div>
