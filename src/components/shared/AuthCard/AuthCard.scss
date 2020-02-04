@@ -8,8 +8,16 @@
   justify-content: center;
 }
 
-.Auth {
+.AuthCard {
   display: flex;
   justify-content: center;
-  margin: 4% auto;
+  margin: 4% 10%;
+  padding: 1%;
+}
+
+.logo-auth {
+  height: auto;
+  width: 60%;
+  margin: auto;
+  padding: 1% 0;
 }
