@@ -169,10 +169,12 @@ class ProductForm extends React.Component {
               <option defaultValue>Choose a category...</option>
               <option>blush</option>
               <option>bronzer</option>
+              <option>concealer</option>
               <option>eyeshadow</option>
               <option>eyeliner</option>
               <option>foundation</option>
               <option>mascara</option>
+              <option>powder</option>
               <option>lipstick</option>
             </select>
           </div>
