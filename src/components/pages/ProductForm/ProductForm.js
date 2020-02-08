@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './ProductForm.scss';
 import productData from '../../../helpers/data/productData';
@@ -14,6 +16,7 @@ class ProductForm extends React.Component {
     productIngredients: '',
     productCategory: '',
     productDesc: '',
+    alert: false,
   }
 
   componentDidMount() {
@@ -54,15 +57,17 @@ class ProductForm extends React.Component {
       productName, productBrand, productIngredients,
       productCategory, productDesc,
     } = this.state;
-    const newProductInfo = {
-      brand: productBrand,
-      category: productCategory,
-      description: productDesc,
-      ingredients: productIngredients,
-      name: productName,
-    };
-    if (Object.keys(newProductInfo) !== []) {
+    if (productName !== '' && productBrand !== '' && productIngredients !== '' && productCategory !== '' && productDesc !== null) {
+      const newProductInfo = {
+        brand: productBrand,
+        category: productCategory,
+        description: productDesc,
+        ingredients: productIngredients,
+        name: productName,
+      };
       this.saveNewProduct(newProductInfo);
+    } else {
+      this.setState({ alert: true });
     }
     this.setState({
       productName: '',
@@ -98,6 +103,11 @@ class ProductForm extends React.Component {
     this.setState({ productName: e.target.value });
   }
 
+  closeAlert = (e) => {
+    e.preventDefault();
+    this.setState({ alert: false });
+  }
+
   brandChange = (e) => {
     e.preventDefault();
     this.setState({ productBrand: e.target.value });
@@ -121,6 +131,10 @@ class ProductForm extends React.Component {
   render() {
     return (
       <div className="ProductForm">
+        {this.state.alert && <div className="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> Please complete all fields below.
+          <Button color="link" onClick={this.closeAlert}><FontAwesomeIcon icon={faTimes} size="sm"/></Button>
+        </div>}
         <form className='col-6 offset-3 ProductForm'>
           <div className="form-group">
             <label htmlFor="order-name">Product Name:</label>
@@ -151,8 +165,7 @@ class ProductForm extends React.Component {
             <select className="form-control form-control-sm"
             id="product-category"
             value={this.state.productCategory}
-            onChange={this.categoryChange}
-            required >
+            onChange={this.categoryChange} >
               <option defaultValue>Choose a category...</option>
               <option>blush</option>
               <option>bronzer</option>
@@ -188,8 +201,8 @@ class ProductForm extends React.Component {
             />
           </div>
           { this.props.match.params.productId
-            ? <Button className="btn btn-secondary" onClick={this.updateProductEvent}>Update product details</Button>
-            : <Button className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
+            ? <Button type="submit" className="btn btn-secondary" onClick={this.updateProductEvent}>Update product details</Button>
+            : <Button type="submit" className="btn btn-secondary" onClick={this.saveProductEvent}>Save and Add to my bag</Button>
           }
         </form>
       </div>
