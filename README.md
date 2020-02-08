@@ -5,22 +5,22 @@ Beauty Mark is a web application that allows users to search and add makeup prod
 
 # Screenshots
 * Login screen
-![login screen]()
+![login screen](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark1.JPG)
 
 * Home page with the makeup bag and which product categories are able to be searched
-![home page]()
+![home page](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark2.JPG)
 
 * Search page
-![search page]()
+![search page](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark3.JPG)
 
 * If the user cannot find their product, they have the ability to add it
-![add form]()
+![add form](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark4.JPG)
 
 * Product details with harmful ingredients
-![product details]()
+![product details](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark5.JPG)
 
 * Learn more screen
-![learn more]()
+![learn more](https://raw.githubusercontent.com/kelseycreel/beauty-mark/master/screenshots/beautymark6.JPG)
 
 # Instructions on How to Run
 * Clone down this project
