@@ -34,7 +34,7 @@ Beauty Mark is a web application that allows users to search and add makeup prod
 # Contributors
 Kelsey Creel
 
-# Tool Used
+# Tools Used
 * SCSS
 * React
 * Javascript
